@@ -1,0 +1,728 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>67d0544d-caf5-4f4f-9a41-d72417d19dc4</ProjectGuid>
+    <ProjectTypeGuids>{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="css\style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\app.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\controllers\ComponentsCtrl.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\controllers\ExtensionsCtrl.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\controllers\InkCtrl.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\controllers\ListsCtrl.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\controllers\MotionCtrl.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\controllers\SetupCtrl.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-animate\.bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-animate\angular-animate.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-animate\angular-animate.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-animate\angular-animate.min.js.map">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-animate\animate.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-animate\bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-animate\index.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-animate\package.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-animate\README.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-sanitize\.bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-sanitize\angular-sanitize.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-sanitize\angular-sanitize.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-sanitize\angular-sanitize.min.js.map">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-sanitize\bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-sanitize\index.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-sanitize\package.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-sanitize\README.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\.bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\CHANGELOG.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\CONTRIBUTING.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\LICENSE">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\README.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\release\angular-ui-router.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\release\angular-ui-router.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\src\common.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\src\resolve.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\src\state.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\src\stateDirectives.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\src\stateFilters.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\src\templateFactory.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\src\urlMatcherFactory.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\src\urlRouter.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\src\view.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\src\viewDirective.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-ui-router\src\viewScroll.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular\.bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular\angular-csp.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular\angular.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular\angular.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular\angular.min.js.gzip">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular\angular.min.js.map">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular\bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular\index.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular\package.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular\README.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\.bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\.cz.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\.gitignore">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\.jshintrc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\CONTRIBUTING.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\dist\ionic.material.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\dist\ionic.material.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\dist\ionic.material.min1.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\dist\ionic.material.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\dist\ionic.material.min.js.map">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\LICENSE">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\package.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\README.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\js\ionic-material.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\js\lib\_ink.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\js\lib\_motion.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\directives\md-label.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\bar-header-expanded.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\bar.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\button-bar.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\button-fab.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\button-floating.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\button.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\card.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\hero.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\item.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\list.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\loading.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\login.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\mask.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\menu.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\elements\motion-elements.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\helpers\colors.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\helpers\sizes.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\helpers\utilities.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\index.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\motion\blinds.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\motion\pan-in-left.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\motion\ripple.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\motion\slide-fade-in.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\motion\slide-in-right.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\motion\slide-up.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\overrides\ink.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\src\scss\overrides\ionic.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic-material\webpack.config.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\.bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\css\ionic.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\css\ionic.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\fonts\ionicons.eot">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\fonts\ionicons.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\fonts\ionicons.ttf">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\fonts\ionicons.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\js\ionic-angular.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\js\ionic-angular.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\js\ionic.bundle.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\js\ionic.bundle.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\js\ionic.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\js\ionic.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\README.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\ionic.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\ionicons\ionicons.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\ionicons\_ionicons-font.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\ionicons\_ionicons-icons.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\ionicons\_ionicons-variables.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_action-sheet.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_animations.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_backdrop.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_badge.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_bar.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_button-bar.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_button.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_checkbox.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_form.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_grid.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_items.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_list.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_loading.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_menu.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_mixins.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_modal.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_platform.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_popover.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_popup.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_progress.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_radio.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_range.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_refresher.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_reset.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_scaffolding.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_select.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_slide-box.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_spinner.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_tabs.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_toggle.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_transitions.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_type.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_util.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\ionic\scss\_variables.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\.bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\dist\waves.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\dist\waves.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\dist\waves.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\dist\waves.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\dist\waves.min.js.map">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\docs\index.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\docs\static\jquery.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\docs\static\prims.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\docs\static\prims.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\docs\static\snarl.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\docs\static\snarl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\docs\static\style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\Gruntfile.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\LICENSE">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\package.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\README.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\situs.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\src\js\waves.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\src\less\waves.less">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\src\sass\waves.sass">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\src\scss\waves.scss">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\waves\src\stylus\waves.styl">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\components.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\extensions.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Home\Home.html" />
+    <Content Include="views\Home\Home.js" />
+    <Content Include="views\ink.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\lists.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\LiveTv\LiveTv.html" />
+    <Content Include="views\LiveTv\LiveTv.js" />
+    <Content Include="views\motion.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\News\NewsItem.html" />
+    <Content Include="views\News\NewsList.html" />
+    <Content Include="views\News\News.js" />
+    <Content Include="views\Search\Search.html" />
+    <Content Include="views\Search\Search.js" />
+    <Content Include="views\Start\Start.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Start\Start.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Video\VideoItem.html" />
+    <Content Include="views\Video\VideoList.html" />
+    <Content Include="views\Video\Video.js" />
+    <None Include=".abignore" />
+    <Content Include=".abproject" />
+    <Content Include=".debug.abproject" />
+    <Content Include=".release.abproject" />
+    <Content Include="cordova.android.js" />
+    <Content Include="cordova.ios.js" />
+    <Content Include="cordova.wp8.js" />
+    <Content Include="index.html" />
+    <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-mdpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-nodpi\splashscreen.9.png" />
+    <Resource Include="App_Resources\iOS\Default-568h@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-667h.png" />
+    <Resource Include="App_Resources\iOS\Default-736h.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape-667h.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape-736h.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-Portrait.png" />
+    <Resource Include="App_Resources\iOS\Default-Portrait@2x.png" />
+    <Resource Include="App_Resources\iOS\Default.png" />
+    <Resource Include="App_Resources\iOS\Default@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-40.png" />
+    <Resource Include="App_Resources\iOS\icon-40@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-40@3x.png" />
+    <Resource Include="App_Resources\iOS\icon-60.png" />
+    <Resource Include="App_Resources\iOS\icon-60@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-60@3x.png" />
+    <Resource Include="App_Resources\iOS\icon-72.png" />
+    <Resource Include="App_Resources\iOS\icon-72@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-76.png" />
+    <Resource Include="App_Resources\iOS\icon-76@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small-50.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small-50@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small@2x.png" />
+    <Resource Include="App_Resources\iOS\icon.png" />
+    <Resource Include="App_Resources\iOS\icon@2x.png" />
+    <Resource Include="App_Resources\iOS\watch-172x172.png" />
+    <Resource Include="App_Resources\iOS\watch-196x196.png" />
+    <Resource Include="App_Resources\iOS\watch-48x48.png" />
+    <Resource Include="App_Resources\iOS\watch-55x55.png" />
+    <Resource Include="App_Resources\iOS\watch-58x58.png" />
+    <Resource Include="App_Resources\iOS\watch-80x80.png" />
+    <Resource Include="App_Resources\iOS\watch-87x87.png" />
+    <Resource Include="App_Resources\iOS\watch-88x88.png" />
+    <Resource Include="App_Resources\WP8\ApplicationIcon.png" />
+    <Resource Include="App_Resources\WP8\SplashScreenImage.jpg" />
+    <Resource Include="App_Resources\WP8\Assets\BadgeLogo.png" />
+    <Resource Include="App_Resources\WP8\Assets\Logo.png" />
+    <Resource Include="App_Resources\WP8\Assets\SplashScreen.png" />
+    <Resource Include="App_Resources\WP8\Assets\SquareTile150x150.png" />
+    <Resource Include="App_Resources\WP8\Assets\SquareTile71x71.png" />
+    <Resource Include="App_Resources\WP8\Assets\StoreLogo.png" />
+    <Resource Include="App_Resources\WP8\Assets\WideLogo.png" />
+    <Resource Include="App_Resources\WP8\Tiles\Iconic\110x110.png" />
+    <Resource Include="App_Resources\WP8\Tiles\Iconic\202x202.png" />
+    <Content Include="css\index.css" />
+    <Content Include="img\cordova.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="js\index.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Resources\" />
+    <Folder Include="App_Resources\Android\" />
+    <Folder Include="App_Resources\Android\drawable-hdpi\" />
+    <Folder Include="App_Resources\Android\drawable-ldpi\" />
+    <Folder Include="App_Resources\Android\drawable-mdpi\" />
+    <Folder Include="App_Resources\Android\drawable-nodpi\" />
+    <Folder Include="App_Resources\iOS\" />
+    <Folder Include="App_Resources\WP8\" />
+    <Folder Include="App_Resources\WP8\Assets\" />
+    <Folder Include="App_Resources\WP8\Tiles\" />
+    <Folder Include="App_Resources\WP8\Tiles\Iconic\" />
+    <Folder Include="css\" />
+    <Folder Include="img\" />
+    <Folder Include="js\" />
+    <Folder Include="js\controllers\" />
+    <Folder Include="lib\" />
+    <Folder Include="lib\angular-animate\" />
+    <Folder Include="lib\angular-sanitize\" />
+    <Folder Include="lib\angular-ui-router\" />
+    <Folder Include="lib\angular-ui-router\api\" />
+    <Folder Include="lib\angular-ui-router\release\" />
+    <Folder Include="lib\angular-ui-router\src\" />
+    <Folder Include="lib\angular\" />
+    <Folder Include="lib\ionic-material\" />
+    <Folder Include="lib\ionic-material\dist\" />
+    <Folder Include="lib\ionic-material\src\" />
+    <Folder Include="lib\ionic-material\src\js\" />
+    <Folder Include="lib\ionic-material\src\js\lib\" />
+    <Folder Include="lib\ionic-material\src\scss\" />
+    <Folder Include="lib\ionic-material\src\scss\directives\" />
+    <Folder Include="lib\ionic-material\src\scss\elements\" />
+    <Folder Include="lib\ionic-material\src\scss\helpers\" />
+    <Folder Include="lib\ionic-material\src\scss\motion\" />
+    <Folder Include="lib\ionic-material\src\scss\overrides\" />
+    <Folder Include="lib\ionic\" />
+    <Folder Include="lib\ionic\css\" />
+    <Folder Include="lib\ionic\fonts\" />
+    <Folder Include="lib\ionic\js\" />
+    <Folder Include="lib\ionic\scss\" />
+    <Folder Include="lib\ionic\scss\ionicons\" />
+    <Folder Include="lib\waves\" />
+    <Folder Include="lib\waves\dist\" />
+    <Folder Include="lib\waves\docs\" />
+    <Folder Include="lib\waves\docs\static\" />
+    <Folder Include="lib\waves\src\" />
+    <Folder Include="lib\waves\src\js\" />
+    <Folder Include="lib\waves\src\less\" />
+    <Folder Include="lib\waves\src\sass\" />
+    <Folder Include="lib\waves\src\scss\" />
+    <Folder Include="lib\waves\src\stylus\" />
+    <Folder Include="Plugins\" />
+    <Folder Include="views\" />
+    <Folder Include="views\Home\" />
+    <Folder Include="views\LiveTv\" />
+    <Folder Include="views\Search\" />
+    <Folder Include="views\Start\" />
+    <Folder Include="views\Video\" />
+    <Folder Include="views\News\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="lib\angular-ui-router\api\angular-ui-router.d.ts" />
+  </ItemGroup>
+  <Import Project="$(IceniumTargets)Build.targets" />
+  <!--
+    TODO: Uncomment this code if you need to customize the build process.
+    <Target Name="BeforeBuild">
+        <Message Text="TODO: Implement BeforeBuild" Importance="high" />
+    </Target>
+
+    <Target Name="AfterBuild">
+        <Message Text="TODO: Implement AfterBuild" Importance="high" />
+    </Target>
+    -->
+</Project>

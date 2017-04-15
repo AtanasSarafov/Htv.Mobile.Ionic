@@ -1,0 +1,30 @@
+<ion-view view-title="" ng-init="loadNews()">
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+        </ion-refresher>
+        <!-- Forms -->
+        <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="search" placeholder="Search" ng-model="query" ng-change="search()">
+        </label>
+
+        <ion-list>
+            <ion-item class="item animated fadeInUp" ng-repeat="newsItem in data.newsItems" href="#/app/newsItem" push-search>
+                <div class="video-thumbnail">
+                    <img ng-src="{{ newsItem.img }}" />
+                    <i class="icon ion-play" style="color:white;" ng-if="newsItem.duration != undefined">
+                        &nbsp;{{ newsItem.duration }}
+                    </i><!--ng-if="{{newsItem.duration != undefined}}"-->
+                </div>
+
+                <h2 style="white-space: initial;"><b>{{ newsItem.title }}</b></h2>
+                <p>{{ newsItem.subTitle }}</p>
+                <i class="icon ion-ios-clock"> {{newsItem.date}}</i>
+                <!--<ion-item ng-if="$index % 9 == 0" class="item-image">
+                    <img src="img/banner.png" />
+                </ion-item>-->
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll immediate-check="false" ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

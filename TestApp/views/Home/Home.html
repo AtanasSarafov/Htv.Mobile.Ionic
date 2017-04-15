@@ -1,0 +1,43 @@
+
+<ion-view view-title="" ng-init="loadNews()">
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <a href="#/app/newsItem" style="text-decoration: none;">
+            <div class="list stable-bg animated fadeInDownBig" style="background-color:black;">
+                <div class="item item-image">
+                    <img ng-src="{{highlightedItem.img}}">
+                    <div>
+                        <h1 style="color: #D3D3D3;white-space: initial;">&nbsp;<b>{{highlightedItem.title}}</b></h1>
+                        <p>&nbsp;&nbsp;<i class="icon ion-ios-clock"> {{highlightedItem.date}}</i></p>
+                    </div>
+                </div>
+                <div class="item item-body" style="color: #D3D3D3;">
+                    {{highlightedItem.subTitle}}
+                </div>
+            </div>
+        </a>
+
+        <ion-list>
+            <ion-item class="item animated fadeInUp" ng-repeat="newsItem in data.newsItems" href="#/app/newsItem">
+                <div class="video-thumbnail">
+                    <img ng-src="{{ newsItem.img }}" />
+                    <i class="icon ion-play" style="color:white;" ng-if="newsItem.duration != undefined">
+                        &nbsp;{{ newsItem.duration }}
+                    </i>
+
+                    <!--<button class="button button-stable button-fab button-fab-bottom-left">
+                        <i class="icon ion-videocamera" style="background-color:transparent;"></i>
+                    </button>-->
+                </div>
+
+                <h2 style="white-space: initial;"><b>{{ newsItem.title }}</b></h2>
+                <p>{{ newsItem.subTitle }}</p>
+                <i class="icon ion-ios-clock"> {{newsItem.date}}</i>
+            </ion-item>
+        </ion-list>
+
+        <ion-infinite-scroll immediate-check="false" ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>
