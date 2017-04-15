@@ -1,11 +1,11 @@
 {
-  "ProjectName": "TestApp",
+  "ProjectName": "Htv.Mobile",
   "ProjectGuid": "67d0544d-caf5-4f4f-9a41-d72417d19dc4",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.TestApp",
-  "DisplayName": "TestApp",
-  "Author": "",
-  "Description": "TestApp",
+  "AppIdentifier": "com.telerik.Htv.Mobile",
+  "DisplayName": "Htv.Mobile",
+  "Author": "Atanas Sarafov",
+  "Description": "Htv.Mobile",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
@@ -35,7 +35,7 @@
   "WP8PublisherID": "{39075ebf-8eca-454a-bd1c-d1c5260f4441}",
   "WP8ProductID": "{5d9f209c-9481-44ca-9124-bcd138bb9fec}",
   "WPSdk": "8.0",
-  "WP8PackageIdentityName": "1234Telerik.TestApp",
+  "WP8PackageIdentityName": "1234Telerik.Htv.Mobile",
   "WP8WindowsPublisherName": "CN=Telerik",
   "WP8SupportedResolutions": [
     "ID_RESOLUTION_WVGA",
