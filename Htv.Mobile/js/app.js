@@ -9,7 +9,6 @@ app.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
-
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         }
@@ -21,7 +20,7 @@ app.run(function ($ionicPlatform) {
 
 app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|geo|tel|local):/);
-    $compileProvider.imgSrcSanitizationWhitelist('img/');
+    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|local|data|chrome-extension):/);
 
     $stateProvider
         .state('app', {

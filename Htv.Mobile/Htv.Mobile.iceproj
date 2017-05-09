@@ -47,6 +47,7 @@
     <Content Include="js\controllers\SetupCtrl.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="js\services\DataService.js" />
     <Content Include="lib\angular-animate\.bower.json">
       <SubType>Content</SubType>
     </Content>
@@ -485,6 +486,9 @@
     <Content Include="lib\ionic\scss\_variables.scss">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="lib\jQuery\jquery-3.2.1.min.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="lib\waves\.bower.json">
       <SubType>Content</SubType>
     </Content>
@@ -669,6 +673,7 @@
     <Folder Include="img\" />
     <Folder Include="js\" />
     <Folder Include="js\controllers\" />
+    <Folder Include="js\services\" />
     <Folder Include="lib\" />
     <Folder Include="lib\angular-animate\" />
     <Folder Include="lib\angular-sanitize\" />
@@ -694,6 +699,7 @@
     <Folder Include="lib\ionic\js\" />
     <Folder Include="lib\ionic\scss\" />
     <Folder Include="lib\ionic\scss\ionicons\" />
+    <Folder Include="lib\jQuery\" />
     <Folder Include="lib\waves\" />
     <Folder Include="lib\waves\dist\" />
     <Folder Include="lib\waves\docs\" />
