@@ -144,7 +144,8 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
         newsList.then(
             function successCallback(newsItemsResponseData) {
                 var newsItems = dataService._parseToNewsItem(newsItemsResponseData);
-                $scope.data = { newsItems };
+
+                $scope.data.newsItems = $scope.data.newsItems.concat(newsItems);
 
                 //TODO: Test code.
                 if ($scope.data.newsItems.length > 40)

@@ -140,6 +140,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
         })
     ;
 
-    // if none of the above states are matched, use this as the fallback
+    // NOTE: If none of the above states are matched, use this as the fall-back.
     $urlRouterProvider.otherwise('/app/home');
 });
