@@ -23,6 +23,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="css\additional-styles.css" />
     <Content Include="css\style.css">
       <SubType>Content</SubType>
     </Content>
@@ -47,6 +48,7 @@
     <Content Include="js\controllers\SetupCtrl.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="js\formatDate.js" />
     <Content Include="js\services\DataService.js" />
     <Content Include="lib\angular-animate\.bower.json">
       <SubType>Content</SubType>

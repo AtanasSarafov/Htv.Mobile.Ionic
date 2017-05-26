@@ -224,15 +224,19 @@ p {
 
 .video-thumbnail {
     position: relative;
-    display: inline-block;
+    display: block;
     /*margin-left: -15px;*/
-    width: 55%;
+    width: 80%;
     float: left;
     padding-right: 15px;
 }
 
+
+
     .video-thumbnail img {
-        width: 95%;
+        width: 100%;
+
+   
     }
 
     .video-thumbnail i {

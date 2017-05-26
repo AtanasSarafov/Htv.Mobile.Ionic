@@ -17,6 +17,7 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
 
         newsList.then(
             function successCallback(newsItemsResponseData) {
+                debugger;
                 var newsItems = dataService._parseToNewsItem(newsItemsResponseData);
                 $scope.data = { newsItems };
                 $scope.highlightedItem = newsItems[0];
@@ -91,6 +92,7 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
     };
 
     $scope.loadMore = function () {
+
         //#region TEST-DATA
         //var newTempData =
         //    [{
@@ -144,10 +146,10 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
         newsList.then(
             function successCallback(newsItemsResponseData) {
                 var newsItems = dataService._parseToNewsItem(newsItemsResponseData);
-                $scope.data = { newsItems };
+                $scope.data.newsItems = $scope.data.newsItems.concat(newsItems);
 
                 //TODO: Test code.
-                if ($scope.data.newsItems.length > 40)
+                if ($scope.data.newsItems.length != 0)
                     $scope.noMoreItemsAvailable = true;
 
                 //$scope.data.newsItems = $scope.data.newsItems.concat(newsList);

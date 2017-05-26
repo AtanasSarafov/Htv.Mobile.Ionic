@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Copyright 2014 Drifty Co.
  * http://drifty.com/
@@ -5808,7 +5808,9 @@ ion-tabs.tabs-color-active-dark .tab-item {
   .item h2 {
     margin: 0 0 2px 0;
     font-size: 16px;
-    font-weight: normal; }
+    font-weight: normal;
+    
+  }
   .item h3 {
     margin: 0 0 4px 0;
     font-size: 14px; }
