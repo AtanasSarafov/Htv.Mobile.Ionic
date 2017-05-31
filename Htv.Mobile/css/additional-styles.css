@@ -19,6 +19,8 @@ h2 {
     background: linear-gradient(to bottom, rgba(30,87,153,1) 1%,rgba(30,87,153,1) 19%,rgba(30,87,153,1) 20%,rgba(41,137,216,1) 50%,rgba(30,87,153,1) 80%,rgba(30,87,153,1) 81%,rgba(30,87,153,0.8) 98%,rgba(30,87,153,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
     border: 5px solid #212121;
+    padding: 0;
+    margin: 0;
 }
 
 /*.bottom-line {
@@ -42,13 +44,21 @@ h2 {
     color: #fff;
 }
 
+.h1-single {
+    font-size: 29px;
+    color: #fff;
+    white-space: initial;
+    margin: 10px;
+}
+
+
+
 a {
     padding: 0 !important;
     margin: 0 !important;
 }
 
 .custom {
-    
     padding: 0px;
     margin: 0;
 }
@@ -58,8 +68,8 @@ a {
 }
 
 .item-thumb {
-   float: left;
-   margin-bottom: 5px;
+    float: left;
+    margin-bottom: 5px;
 }
 
 .item-title {
@@ -68,4 +78,10 @@ a {
     text-overflow: ellipsis;
     word-wrap: break-word;
     max-height: 65px;
+}
+
+.item-body {
+    color: #fff;
+    font-size: 1em;
+    line-height: 21px;
 }
