@@ -14,45 +14,18 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
         category = typeof category !== 'undefined' ? category : null;
 
         var newsList = dataService.getNewsList(limit, offset, category);
-
         newsList.then(
             function successCallback(newsItemsResponseData) {
-                debugger;
                 var newsItems = dataService._parseToNewsItem(newsItemsResponseData);
-                $scope.data = { newsItems };
-                $scope.highlightedItem = newsItems[0];
+                var dataViewModel = _createViewModel(newsItems);
+
+                $scope.data = dataViewModel;
+                $scope.highlightedItem = _createViewModel(newsItems[0]).newsItems[0];
             }, function errorCallback(response) {
                 console.error(response);
             });
 
         return newsList;
-
-        // #region TEST-DATA
-        //var tempData = {
-        //    newsItems: [
-        //        {
-        //            title: 'Arya Stark',
-        //            subTitle: 'The quickest way to a man\'s heart is through Arya\'s needle. She has two speeds: Walk and Kill, and is the reason why Waldo is still hiding.The quickest way to a man\'s heart is through Arya\'s needle. She has two speeds: Walk and Kill, and is the reason why Waldo is still hiding.',
-        //            img: 'img/news2.png',
-        //            date: '10.02.2016'
-        //        },
-        //        {
-        //            title: 'Video item - Даниел Коленда идва за съживителни събрания в България!',
-        //            subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-        //            img: 'img/news1.png',
-        //            date: '10.02.2016',
-        //            duration: '10:34'
-        //        },
-        //        {
-        //            title: 'Не пеем за пари! Честито Рождество Христово!',
-        //            subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-        //            img: 'img/news2.png',
-        //            date: '10.02.2016'
-        //        }
-        //    ]
-        //};
-        //$scope.data = tempData;
-        // #endregion
     };
 
     $scope.loadVideos = function () {
@@ -92,64 +65,17 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
     };
 
     $scope.loadMore = function () {
-
-        //#region TEST-DATA
-        //var newTempData =
-        //    [{
-        //        title: 'Nasko News!',
-        //        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-        //        img: 'img/tyrion.jpg',
-        //        date: '10.02.2016',
-        //        duration: '10:34'
-        //    },
-        //    {
-        //        title: 'Nasko News!',
-        //        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-        //        img: 'img/tyrion.jpg',
-        //        date: '10.02.2016'
-        //    },
-        //    {
-        //        title: 'Nasko News!',
-        //        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-        //        img: 'img/tyrion.jpg',
-        //        date: '10.02.2016'
-        //    },
-        //    {
-        //        title: 'Nasko News!',
-        //        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-        //        img: 'img/tyrion.jpg',
-        //        date: '10.02.2016'
-        //    },
-        //    {
-        //        title: 'Nasko News!',
-        //        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-        //        img: 'img/tyrion.jpg',
-        //        date: '10.02.2016'
-        //    },
-        //    {
-        //        title: 'Nasko News!',
-        //        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-        //        img: 'img/tyrion.jpg',
-        //        date: '10.02.2016'
-        //    },
-        //    {
-        //        title: 'Nasko News!',
-        //        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-        //        img: 'img/tyrion.jpg',
-        //        date: '10.02.2016'
-        //    }
-        //    ];
-        //#endregion
-
         var newsList = dataService.getNewsList($scope.limit, $scope.offset, null);
 
         newsList.then(
             function successCallback(newsItemsResponseData) {
                 var newsItems = dataService._parseToNewsItem(newsItemsResponseData);
-                $scope.data.newsItems = $scope.data.newsItems.concat(newsItems);
+                var dataViewModel = _createViewModel(newsItems);
+
+                $scope.data.newsItems = $scope.data.newsItems.concat(dataViewModel.newsItems);
 
                 //TODO: Test code.
-                if ($scope.data.newsItems.length != 0)
+                if ($scope.data.newsItems.length > 40)
                     $scope.noMoreItemsAvailable = true;
 
                 //$scope.data.newsItems = $scope.data.newsItems.concat(newsList);
@@ -161,4 +87,42 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
                 console.error(response);
             });
     };
+
+    function _createViewModel(newsItems) {
+        var viewModel = { newsItems: [] }
+
+        if (newsItems instanceof Array) {
+            for (var i = 0; i < newsItems.length; i++) {
+                // NOTE: The first element is highlightedItem.
+                if (i === 0) continue;
+
+                viewModel.newsItems.push(
+                    {
+                        title: newsItems[i].title,
+                        subTitle: newsItems[i].subTitle,
+                        img: newsItems[i].img,
+                        date: getDisplayDate(newsItems[i].date)
+                    }
+                );
+            }
+        }
+        else if (typeof (newsItems) != 'undefined' && newsItems != null) {
+            viewModel.newsItems.push(
+                {
+                    title: newsItems.title,
+                    subTitle: newsItems.subTitle,
+                    img: newsItems.img,
+                    date: getDisplayDate(newsItems.date)
+                }
+            );
+        }
+        return viewModel;
+    }
+
+    function getDisplayDate(dateString) {
+        date = new Date(dateString);
+        //TODO: This constants should be placed in globle space.
+        var months = ["Януари", "Февруари", "Март", "Април", "Май", "Юни", "Юли", "Август", "Септември", "Октомври", "Ноември", "Декември"];
+        return date.getDate() + " " + months[date.getMonth()];
+    }
 });
