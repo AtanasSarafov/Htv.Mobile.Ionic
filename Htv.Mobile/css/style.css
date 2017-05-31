@@ -141,7 +141,7 @@ p {
 
 .code {
     color: #333;
-    font-family: monospace;
+    font-family: 'Didact Gothic', sans-serif;
     padding: 10px;
     white-space: pre;
 }
@@ -235,8 +235,6 @@ p {
 
     .video-thumbnail img {
         width: 100%;
-
-   
     }
 
     .video-thumbnail i {
@@ -245,7 +243,7 @@ p {
         bottom: 6%;
         left: calc(0%);
         background-color: rgba(27, 24, 24, 0.44);
-        color:white;
+        color: white;
         width: initial;
         text-align: center;
         font-size: 5.9vw;
