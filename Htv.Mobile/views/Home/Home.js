@@ -1,4 +1,4 @@
-angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoading, ionicMaterialInk, dataService) {
+angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoading, ionicMaterialInk, dataService, displayUtils) {
 
     ionicMaterialInk.displayEffect();
     $scope.noMoreItemsAvailable = false;
@@ -7,7 +7,6 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
 
     //Functions
     $scope.loadNews = function (limit, offset, category) {
-
         // Default values.
         limit = typeof limit !== 'undefined' ? limit : 10;
         offset = typeof offset !== 'undefined' ? offset : 0;
@@ -18,7 +17,6 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
             function successCallback(newsItemsResponseData) {
                 var newsItems = dataService._parseToNewsItem(newsItemsResponseData);
                 var dataViewModel = _createViewModel(newsItems);
-
                 $scope.data = dataViewModel;
                 $scope.highlightedItem = _createViewModel(newsItems[0]).newsItems[0];
             }, function errorCallback(response) {
@@ -78,9 +76,7 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
                 if ($scope.data.newsItems.length > 40)
                     $scope.noMoreItemsAvailable = true;
 
-                //$scope.data.newsItems = $scope.data.newsItems.concat(newsList);
                 $scope.$broadcast('scroll.infiniteScrollComplete');
-
                 $scope.offset += $scope.offset;
 
             }, function errorCallback(response) {
@@ -98,10 +94,11 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
 
                 viewModel.newsItems.push(
                     {
+                        id: newsItems[i].id,
                         title: newsItems[i].title,
                         subTitle: newsItems[i].subTitle,
                         img: newsItems[i].img,
-                        date: getDisplayDate(newsItems[i].date)
+                        date: displayUtils.getDisplayDate(newsItems[i].date)
                     }
                 );
             }
@@ -109,20 +106,14 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
         else if (typeof (newsItems) != 'undefined' && newsItems != null) {
             viewModel.newsItems.push(
                 {
+                    id: newsItems.id,
                     title: newsItems.title,
                     subTitle: newsItems.subTitle,
                     img: newsItems.img,
-                    date: getDisplayDate(newsItems.date)
+                    date: displayUtils.getDisplayDate(newsItems.date)
                 }
             );
         }
         return viewModel;
-    }
-
-    function getDisplayDate(dateString) {
-        date = new Date(dateString);
-        //TODO: This constants should be placed in globle space.
-        var months = ["Януари", "Февруари", "Март", "Април", "Май", "Юни", "Юли", "Август", "Септември", "Октомври", "Ноември", "Декември"];
-        return date.getDate() + " " + months[date.getMonth()];
     }
 });

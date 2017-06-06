@@ -1,9 +1,9 @@
-// Ionic Starter App
+﻿// Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('App', ['ionic', 'ionic-material']);
+var app = angular.module('App', ['ionic', 'ionic-material', 'pascalprecht.translate']);
 
 app.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -18,9 +18,35 @@ app.run(function ($ionicPlatform) {
     });
 })
 
-app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $translateProvider) {
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|geo|tel|local):/);
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|local|data|chrome-extension):/);
+    $translateProvider.preferredLanguage("bg");
+    $translateProvider.fallbackLanguage("en")
+
+    $translateProvider.translations("bg", {
+        // Week days.
+        Monday: "Понеделник",
+        Tuesday: "Вторник",
+        Wednesday: "Сряда",
+        Thursday: "Четвъртък",
+        Friday: "Петък",
+        Saturday: "Събота",
+        Sunday: "Неделя",
+        // Months.
+        January: "Януари",
+        February: "Февруари",
+        March: "Март",
+        April: "Април",
+        May: "Май",
+        June: "Юни",
+        July: "Юли",
+        August: "Август",
+        September: "Септември",
+        October: "Октомври",
+        November: "Ноември",
+        December: "Декември"
+    });
 
     $stateProvider
         .state('app', {
@@ -48,11 +74,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
             }
         })
         .state('app.newsItem', {
-            url: '/newsItem',
+            url: '/newsItem:id',
             views: {
                 'menuContent': {
                     templateUrl: 'views/news/newsItem.html',
-                    controller: 'NewsCtrl'
+                    controller: 'NewsItemCtrl'
                 }
             }
         })

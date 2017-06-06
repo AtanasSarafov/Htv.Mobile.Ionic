@@ -1,5 +1,5 @@
 app.controller('NewsCtrl', function ($scope, $stateParams, $http) {
-
+    debugger;
     $scope.categoryName = $stateParams.categoryName;
     $scope.categoryKey = $stateParams.categoryKey;
 

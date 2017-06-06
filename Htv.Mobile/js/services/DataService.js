@@ -21,32 +21,40 @@ angular.module('App').service('dataService', function ($http) {
                 categoryId: categoryId
             };
 
-        var newsItemsResponseData = this._httpPost(htvDataUrl + newsListPath, requestData)
-        
-        return newsItemsResponseData;
-    }
+        return this._httpPost(htvDataUrl + newsListPath, requestData);
+    };
+
+    this.getNewsItem = function (id) {
+        if (typeof (id) == undefined || id == null) return;
+
+        var requestData = {id: id};
+
+        return this._httpPost(htvDataUrl + newsPath, requestData);
+    };
 
     this.getVideosList = function () {
         var videosItems = this._httpPost(htvDataUrl + videosListPath)
         return videosItems;
-    }
+    };
 
     this.getCategories = function () {
         var categories = this._httpPost(htvDataUrl + categoriesPath)
         return categories;
-    }
+    };
 
     // NOTE [atanassarafov, 05072017]: This method works directly on the response data,
     // which structure it is very likely to be changed.
     this._parseToNewsItem = function (data) {
         var newsItems = [];
         var dataNewsItems = data.data.newsItems;
+        var singleNewsItem = data.data.news;
 
         if (data && dataNewsItems instanceof Array) {
             for (var i = 0; i < dataNewsItems.length; i++) {
                 var item = dataNewsItems[i];
                 newsItems.push(
                     {
+                        id: item.Id,
                         title: item.Title,
                         subTitle: item.SubTitle,
                         img: htvMainUrl + item.Thumb,
@@ -55,9 +63,23 @@ angular.module('App').service('dataService', function ($http) {
                 )
             }
         }
+        else if (typeof (singleNewsItem) != 'undefined' && singleNewsItem != null) {
+            newsItems.push(
+                {
+                    id: singleNewsItem.id,
+                    title: singleNewsItem.title,
+                    subTitle: singleNewsItem.subTitle,
+                    content: singleNewsItem.Content,
+                    readCount: singleNewsItem.ReadCount,
+                    img: item.singleNewsItem,
+                    date: singleNewsItem.DisplayDate,
+                    video: singleNewsItem.Video
+                }
+            );
+        }
 
         return newsItems;
-    }
+    };
 
     this._httpPost = function (url, data) {
         var data;
@@ -70,7 +92,7 @@ angular.module('App').service('dataService', function ($http) {
 
         return $http({
             method: 'POST',
-            url: htvDataUrl + newsListPath,
+            url: url,
             headers: {
                 'identity': identityKey,
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -83,14 +105,5 @@ angular.module('App').service('dataService', function ($http) {
             },
             data: requestData
         });
-        // NOTE: This function will be called outside of the current scope.
-        //.then(
-        //function successCallback(response) {
-        //    data = response;
-        //}, function errorCallback(response) {
-        //    console.error(response);
-        //});
-
-        //return data;
-    }
+    };
 });

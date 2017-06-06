@@ -48,6 +48,7 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="js\services\DataService.js" />
+    <Content Include="js\utils\DisplayUtils.js" />
     <Content Include="lib\angular-animate\.bower.json">
       <SubType>Content</SubType>
     </Content>
@@ -154,6 +155,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="lib\angular-ui-router\src\viewScroll.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angularTranslate\angular-translate.min.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="lib\angular\.bower.json">
@@ -581,6 +585,7 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\News\NewsItem.html" />
+    <Content Include="views\News\NewsItem.js" />
     <Content Include="views\News\NewsList.html" />
     <Content Include="views\News\News.js" />
     <Content Include="views\Search\Search.html" />
@@ -673,6 +678,7 @@
     <Folder Include="img\" />
     <Folder Include="js\" />
     <Folder Include="js\controllers\" />
+    <Folder Include="js\utils\" />
     <Folder Include="js\services\" />
     <Folder Include="lib\" />
     <Folder Include="lib\angular-animate\" />
@@ -700,6 +706,7 @@
     <Folder Include="lib\ionic\scss\" />
     <Folder Include="lib\ionic\scss\ionicons\" />
     <Folder Include="lib\jQuery\" />
+    <Folder Include="lib\angularTranslate\" />
     <Folder Include="lib\waves\" />
     <Folder Include="lib\waves\dist\" />
     <Folder Include="lib\waves\docs\" />
