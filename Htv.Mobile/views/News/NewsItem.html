@@ -1,24 +1,15 @@
 <ion-view view-title="" ng-init="loadNewsItem()">
     <ion-content>
         <div class="item item-image main-image-background" style="width: 101%;">
-            <img src="img/news2.png">
+            <img ng-src="{{newsItem.img}}">
             <div class="highlight-separator"></div>
             <div>
-                <h1 class="h1-modified" style="white-space: initial;">The quickest way to a man's heart is through Arya's needle. She has two speeds: Walk and Kill</h1>
-                <p><i class="icon ion-ios-clock"> 10.12.2016</i></p>
+                <h1 class="h1-modified" style="white-space: initial;">{{newsItem.title}}</h1>
+                <p><i class="icon ion-ios-clock"> {{newsItem.date}}</i></p>
             </div>
         </div>
         <div class="item item-body">
-            The quickest way to a man's heart is through Arya's needle. She has two speeds: Walk and Kill, and is the reason why Waldo is still hiding.
-            The quickest way to a man's heart is through Arya's needle. She has two speeds: Walk and Kill, and is the reason why Waldo is still hiding.
-            <br /><br />
-            "A critical aspect of motion for material design is to retain the feeling of physicality without sacrificing elegance, simplicity, beauty, and the magic of a seamless user experience."
-            "A critical aspect of motion for material design is to retain the feeling of physicality without sacrificing elegance, simplicity, beauty, and the magic of a seamless user experience."
-            <br /><br />
-            "A critical aspect of motion for material design is to retain the feeling of physicality without sacrificing elegance, simplicity, beauty, and the magic of a seamless user experience."
-            "A critical aspect of motion for material design is to retain the feeling of physicality without sacrificing elegance, simplicity, beauty, and the magic of a seamless user experience."
-
-            <br /><br /><br /><br />
+            {{newsItem.content}}
         </div>
         <div class="im-wrapper">
             <h4 class="no-border no-padding-bottom">Related News</h4>

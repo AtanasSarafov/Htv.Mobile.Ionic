@@ -5,9 +5,9 @@ app.controller('NewsItemCtrl', function ($scope, $stateParams, $http, dataServic
 
         newsItemResponce.then(
             function successCallback(newsItemResponseData) {
-                var newsItem = dataService._parseToNewsItem(newsItemResponseData);
+                var newsItems = dataService._parseToNewsItem(newsItemResponseData);
 
-                $scope.newsItem = _createViewModel(newsItem);
+                $scope.newsItem = _createViewModel(newsItems[0]);
 
             }, function errorCallback(response) {
                 console.error(response);
@@ -15,15 +15,15 @@ app.controller('NewsItemCtrl', function ($scope, $stateParams, $http, dataServic
     };
    
     function _createViewModel(newsItem) {
-       if (typeof (newsItems) == 'undefined' || newsItems == null) return null;
+        if (typeof (newsItem) == 'undefined' || newsItem == null) return null;
         
        return {
            id: newsItem.id,
            title: newsItem.title,
            subTitle: newsItem.subTitle,
-           content: newsItem.Content,
-           readCount: newsItem.ReadCount,
-           video: newsItem.Video,
+           content: newsItem.content,
+           readCount: newsItem.readCount,
+           video: newsItem.video,
            img: newsItem.img,
            date: displayUtils.getDisplayDate(newsItem.date)
        }

@@ -64,14 +64,15 @@ angular.module('App').service('dataService', function ($http) {
             }
         }
         else if (typeof (singleNewsItem) != 'undefined' && singleNewsItem != null) {
+            debugger;
             newsItems.push(
                 {
-                    id: singleNewsItem.id,
-                    title: singleNewsItem.title,
-                    subTitle: singleNewsItem.subTitle,
+                    id: singleNewsItem.Id,
+                    title: singleNewsItem.Title,
+                    subTitle: singleNewsItem.SubTitle,
                     content: singleNewsItem.Content,
                     readCount: singleNewsItem.ReadCount,
-                    img: item.singleNewsItem,
+                    img: htvMainUrl + singleNewsItem.Image,
                     date: singleNewsItem.DisplayDate,
                     video: singleNewsItem.Video
                 }
