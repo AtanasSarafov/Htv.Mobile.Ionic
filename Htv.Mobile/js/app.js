@@ -45,7 +45,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
         September: "Септември",
         October: "Октомври",
         November: "Ноември",
-        December: "Декември"
+        December: "Декември",
+        // Qualities
     });
 
     $stateProvider
@@ -164,7 +165,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
                 }
             }
         })
-    ;
+        ;
 
     // NOTE: If none of the above states are matched, use this as the fall-back.
     $urlRouterProvider.otherwise('/app/home');

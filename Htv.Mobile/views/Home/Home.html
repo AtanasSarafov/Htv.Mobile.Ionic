@@ -2,7 +2,6 @@
     <ion-content>
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
         </ion-refresher>
-
         <a ng-href="app.newsItem({id: {{highlightedItem.id}} })" style="text-decoration: none;">
             <div class="list stable-bg animated fadeInDownBig main-image-background">
                 <div class="item item-image">
@@ -29,10 +28,10 @@
                         </i>
                     </ion-thumbnail>
                     <div class="item-title">
-                        <i class="icon ion-ios-alarm-outline date"> {{newsItem.date}}</i>
+                        <mark class="right">  <i class="icon ion-ios-alarm-outline date"> {{newsItem.date}}</i></mark>
                         <h3 style="white-space: initial; margin: 5px;">{{ newsItem.title }}</h3>
                     </div>
-                    <div class="items-separator"></div>
+                    <div class="items-separator row card"></div>
                 </ion-item>
             </ion-list>
         </div>

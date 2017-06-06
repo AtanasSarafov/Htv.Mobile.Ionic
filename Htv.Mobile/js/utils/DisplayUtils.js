@@ -15,6 +15,8 @@ angular.module('App').service('displayUtils', function ($translate) {
             $translate.instant('October'),
             $translate.instant('November'),
             $translate.instant('December')
+
+
         ];
 
         return date.getDate() + " " + months[date.getMonth()];
