@@ -577,6 +577,7 @@
     <Content Include="views\lists.html">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\LiveTv\insertDate.js" />
     <Content Include="views\LiveTv\LiveTv.html" />
     <Content Include="views\LiveTv\LiveTv.js" />
     <Content Include="views\motion.html">

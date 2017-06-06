@@ -4938,6 +4938,7 @@ a.subdued {
     background-color: #444444;
     background-image: linear-gradient(0deg, #111, #111 50%, transparent 50%);
     color: #fff;
+    margin-top: 25px;
 }
 
     .bar.bar-dark .title {
@@ -7353,6 +7354,10 @@ ion-tabs.tabs-color-active-dark .tab-item {
  * Items
  * --------------------------------------------------
  */
+a {
+    text-decoration: none;
+}
+
 .item {
     border-color: #ddd;
     background-color: #fff;
@@ -7369,18 +7374,20 @@ ion-tabs.tabs-color-active-dark .tab-item {
 
     .item h2 {
         margin: 0 0 2px 0;
-        font-size: 16px;
+        padding-left: 7px;
+        font-size: 20px;
         font-weight: normal;
     }
 
     .item h3 {
         margin: 0 0 4px 0;
-        font-size: 14px;
+        font-size: 17px;
+        padding-left: 7px;
     }
 
     .item h4 {
         margin: 0 0 4px 0;
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .item h5, .item h6 {
@@ -7390,6 +7397,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 
     .item p {
         color: #666;
+        padding-left: 7px;
         font-size: 14px;
         margin-bottom: 2px;
     }
@@ -8011,7 +8019,7 @@ button.item.item-button-right {
     .item-avatar-right .item-content > img:first-child,
     .item-avatar-right .item-content .item-image {
         position: absolute;
-        top: 16px;
+        top: 36px;
         right: 16px;
         max-width: 40px;
         max-height: 40px;
@@ -8395,8 +8403,8 @@ button.item.item-button-right {
 }
 
 .card {
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -10897,6 +10905,8 @@ a.button {
     display: flex;
     padding: 5px;
     width: 100%;
+    border: 1px solid #fff;
+    padding: 7px;
 }
 
 .row-wrap {

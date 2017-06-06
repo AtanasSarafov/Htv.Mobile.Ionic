@@ -3,41 +3,48 @@
     <ion-content>
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
         </ion-refresher>
-
         <div class="bar bar-subheader bar-stable static text-center">
             <strong class="title">All Of Htv.bg in One Place</strong>
         </div>
-        <!-- Thumbnail List -->
-        <h4>&nbsp;<i class="icon ion-ios-videocam"></i> Quality List</h4>
-        <div class="list" style="background-color:#002F45">
-            <a class="item item-thumbnail-left" href="rtsp://stream2.htv.bg:1935/securestreaming/android.sdp">
+        <!-- LIVESTREAM QUALITY -->
+        <h4><i class="icon ion-ios-videocam"></i> Quality List</h4>
+        <a href="rtsp://stream2.htv.bg:1935/securestreaming/android.sdp">
+            <div class="item item-thumbnail-left live-background">
                 <img src="img/htvbg-sd.png">
-                <h2 style="color:white">Low quality</h2>
+                <div style="margin:15px;"></div>
+                <h2>Low quality</h2>
                 <p style="color:white">Available even with mobile data.</p>
-            </a>
-            <hr />
-            <a class="item item-thumbnail-left" href="rtsp://stream2.htv.bg:1935/securestreaming/sd.sdp">
+            </div>
+        </a>
+        <a href="rtsp://stream2.htv.bg:1935/securestreaming/android.sdp">
+            <div class="item item-thumbnail-left live-background">
                 <img src="img/htvbg-hd.png">
-                <h2 style="color:white">High quality HD</h2>
+                <div style="margin:15px;"></div>
+                <h2>High quality HD</h2>
                 <p style="color:white">Fast network is needed.</p>
-            </a>
-        </div>
-
-        <div class="im-wrapper">
-            <h4 class="no-border no-padding-bottom"><i class="icon ion-ios-calendar"></i> Shedule</h4>
-        </div>
+            </div>
+        </a>
+        <h4 id="schedule-date">
+            <i class="icon ion-ios-calendar"></i>
+            <script>insertDate();</script>
+        </h4>
+        <!--SCHEDULE ITEMS-->
         <ion-list>
-            <ion-item class="item-avatar-right" ng-repeat="item in data.data.items">
-                <img src="img/logo.png">
-                <h2><b>{{ item.start }}</b></h2>
-                <h3>{{ item.title }}</h3>
-                <p>{{item.category}}</p>
+            <ion-item class="item card " ng-repeat="item in data.data.items">
+                <a href="rtsp://stream2.htv.bg:1935/securestreaming/android.sdp">
+                    <div class="item item-avatar-right">
+                        <img src="/img/play_green.png" />
+                        <h2><b><mark>{{ item.start }}</mark></b></h2>
+                        <h3>{{ item.title }}</h3>
+                        <p>{{item.category}}</p>
+                    </div>
+                </a>
             </ion-item>
         </ion-list>
-
-        <ion-item class="item-image">
-            <img src="img/banner.png" />
-        </ion-item>
+        <!--FOOTER-->
+        <!--  <ion-item class="item-image">
+              <img src="img/banner.png" />
+          </ion-item>-->
         <div class="bar bar-footer custom-dark" style="position: static; color:white;">
             <div class="title">
                 <a href="http://www.htv.bg" style="text-decoration: none">Full version of HTV.bg</a>

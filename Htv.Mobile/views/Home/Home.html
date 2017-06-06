@@ -1,10 +1,7 @@
 <ion-view view-title="" ng-init="loadNews()">
-
     <ion-content>
-
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
         </ion-refresher>
-
         <a href="#/app/newsItem" style="text-decoration: none;">
             <div class="list stable-bg animated fadeInDownBig main-image-background">
                 <div class="item item-image">
@@ -12,28 +9,23 @@
                     <div class="highlight-separator"></div>
                     <div>
                         <h1 class="h1-modified" style="white-space: initial; margin: 10px;"> {{highlightedItem.title}}</h1>
-                        <p style="margin: 10px"><i class="icon ion-ios-clock"> {{highlightedItem.date}}</i></p>
+                        <p><i class="icon ion-ios-clock"> {{highlightedItem.date}}</i></p>
                     </div>
                 </div>
-
                 <!--  <div class="item item-body" style="color: #D3D3D3;">-->
                 {{highlightedItem.subTitle}}
             </div>
             <!--<div class="bottom-separator"></div>-->
             </div>
         </a>
-
         <div class="item-block">
-
             <ion-list>
                 <ion-item class="list animated fadeInUp custom" ng-repeat="newsItem in data.newsItems" href="#/app/newsItem">
-
                     <ion-thumbnail item-left>
                         <img class="item-thumb col col-34 " ng-src="{{ newsItem.img }}" />
                         <i class="icon ion-play" style="color:white;" ng-if="newsItem.duration != undefined">
                             {{ newsItem.duration }}
                         </i>
-
                     </ion-thumbnail>
                     <div class="item-title">
                         <i class="icon ion-ios-alarm-outline date"> {{newsItem.date}}</i>
@@ -41,7 +33,6 @@
                     </div>
                     <div class="items-separator"></div>
                 </ion-item>
-
             </ion-list>
         </div>
         <ion-infinite-scroll immediate-check="false" ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
