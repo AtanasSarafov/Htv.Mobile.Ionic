@@ -61,50 +61,50 @@ app.controller('NewsCtrl', function ($scope, $stateParams, $http) {
     $scope.loadMore = function () {
 
         var newTempData =
-                [{
-                    title: 'Nasko News!',
-                    subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                    img: 'img/tyrion.jpg',
-                    date: '10.02.2016',
-                    duration: '10:34'
-                },
-                 {
-                     title: 'Nasko News!',
-                     subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                     img: 'img/tyrion.jpg',
-                     date: '10.02.2016'
-                 },
-                 {
-                     title: 'Nasko News!',
-                     subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                     img: 'img/tyrion.jpg',
-                     date: '10.02.2016'
-                 },
-                 {
-                     title: 'Nasko News!',
-                     subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                     img: 'img/tyrion.jpg',
-                     date: '10.02.2016'
-                 },
-                 {
-                     title: 'Nasko News!',
-                     subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                     img: 'img/tyrion.jpg',
-                     date: '10.02.2016'
-                 },
-                 {
-                     title: 'Nasko News!',
-                     subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                     img: 'img/tyrion.jpg',
-                     date: '10.02.2016'
-                 },
-                 {
-                     title: 'Nasko News!',
-                     subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                     img: 'img/tyrion.jpg',
-                     date: '10.02.2016'
-                 }
-                ];
+            [{
+                title: 'Nasko News!',
+                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
+                img: 'img/tyrion.jpg',
+                date: '10.02.2016',
+                duration: '10:34'
+            },
+            {
+                title: 'Nasko News!',
+                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
+                img: 'img/tyrion.jpg',
+                date: '10.02.2016'
+            },
+            {
+                title: 'Nasko News!',
+                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
+                img: 'img/tyrion.jpg',
+                date: '10.02.2016'
+            },
+            {
+                title: 'Nasko News!',
+                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
+                img: 'img/tyrion.jpg',
+                date: '10.02.2016'
+            },
+            {
+                title: 'Nasko News!',
+                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
+                img: 'img/tyrion.jpg',
+                date: '10.02.2016'
+            },
+            {
+                title: 'Nasko News!',
+                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
+                img: 'img/tyrion.jpg',
+                date: '10.02.2016'
+            },
+            {
+                title: 'Nasko News!',
+                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
+                img: 'img/tyrion.jpg',
+                date: '10.02.2016'
+            }
+            ];
 
         //TODO: Test code.
         if ($scope.data.newsItems.length > 15)

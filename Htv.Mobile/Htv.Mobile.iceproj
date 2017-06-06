@@ -23,6 +23,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="css\additional-styles.css" />
     <Content Include="css\style.css">
       <SubType>Content</SubType>
     </Content>
@@ -47,6 +48,7 @@
     <Content Include="js\controllers\SetupCtrl.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="js\formatDate.js" />
     <Content Include="js\services\DataService.js" />
     <Content Include="js\utils\DisplayUtils.js" />
     <Content Include="lib\angular-animate\.bower.json">
@@ -579,6 +581,7 @@
     <Content Include="views\lists.html">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\LiveTv\insertDate.js" />
     <Content Include="views\LiveTv\LiveTv.html" />
     <Content Include="views\LiveTv\LiveTv.js" />
     <Content Include="views\motion.html">

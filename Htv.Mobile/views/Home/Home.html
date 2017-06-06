@@ -7,32 +7,35 @@
             <div class="list stable-bg animated fadeInDownBig" style="background-color:black;">
                 <div class="item item-image">
                     <img ng-src="{{highlightedItem.img}}">
+                    <div class="highlight-separator"></div>
                     <div>
-                        <h1 style="color: #D3D3D3;white-space: initial;">&nbsp;<b>{{highlightedItem.title}}</b></h1>
-                        <p>&nbsp;&nbsp;<i class="icon ion-ios-clock"> {{highlightedItem.date}}</i></p>
+                        <h1 class="h1-modified" style="white-space: initial; margin: 10px;"> {{highlightedItem.title}}</h1>
+                        <p><i class="icon ion-ios-clock"> {{highlightedItem.date}}</i></p>
                     </div>
                 </div>
-                <div class="item item-body" style="color: #D3D3D3;">
-                    {{highlightedItem.subTitle}} 
-                </div>
+                <!--  <div class="item item-body" style="color: #D3D3D3;">-->
+                {{highlightedItem.subTitle}}
+            </div>
+            <!--<div class="bottom-separator"></div>-->
             </div>
         </a>
-
-        <ion-list>
-            <ion-item class="item animated fadeInUp" ng-repeat="newsItem in data.newsItems" ui-sref="app.newsItem({id: {{newsItem.id}} })">
-                <div class="video-thumbnail">
-                    <img ng-src="{{ newsItem.img }}" />
-                    <i class="icon ion-play" style="color:white;" ng-if="newsItem.duration != undefined">
-                        &nbsp;{{ newsItem.duration }}
-                    </i>
-                </div>
-
-                <h2 style="white-space: initial;"><b>{{ newsItem.title }}</b></h2>
-                <p>{{ newsItem.subTitle }}</p>
-                <i class="icon ion-ios-clock"> {{newsItem.date}}</i>
-            </ion-item>
-        </ion-list>
-
+        <div class="item-block">
+            <ion-list>
+                <ion-item class="list animated fadeInUp custom" ng-repeat="newsItem in data.newsItems" href="#/app/newsItem">
+                    <ion-thumbnail item-left>
+                        <img class="item-thumb col col-34 " ng-src="{{ newsItem.img }}" />
+                        <i class="icon ion-play" style="color:white;" ng-if="newsItem.duration != undefined">
+                            {{ newsItem.duration }}
+                        </i>
+                    </ion-thumbnail>
+                    <div class="item-title">
+                        <i class="icon ion-ios-alarm-outline date"> {{newsItem.date}}</i>
+                        <h2 style="white-space: initial; margin: 5px;">{{ newsItem.title }}</h2>
+                    </div>
+                    <div class="items-separator"></div>
+                </ion-item>
+            </ion-list>
+        </div>
         <ion-infinite-scroll immediate-check="false" ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
     </ion-content>
 </ion-view>

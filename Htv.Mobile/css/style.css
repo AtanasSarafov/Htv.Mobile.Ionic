@@ -1,5 +1,7 @@
 /* Empty. Add your own CSS if you like */
-/* Utilities */
+*, p, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Didact Gothic', sans-serif;
+}
 
 .link {
     color: #116262;
@@ -141,7 +143,7 @@ p {
 
 .code {
     color: #333;
-    font-family: monospace;
+    font-family: 'Didact Gothic', sans-serif;
     padding: 10px;
     white-space: pre;
 }
@@ -224,15 +226,17 @@ p {
 
 .video-thumbnail {
     position: relative;
-    display: inline-block;
+    display: block;
     /*margin-left: -15px;*/
-    width: 55%;
+    width: 80%;
     float: left;
     padding-right: 15px;
 }
 
+
+
     .video-thumbnail img {
-        width: 95%;
+        width: 100%;
     }
 
     .video-thumbnail i {
@@ -241,7 +245,7 @@ p {
         bottom: 6%;
         left: calc(0%);
         background-color: rgba(27, 24, 24, 0.44);
-        color:white;
+        color: white;
         width: initial;
         text-align: center;
         font-size: 5.9vw;
