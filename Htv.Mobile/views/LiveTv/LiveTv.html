@@ -10,7 +10,7 @@
         <h4><i class="icon ion-ios-videocam"></i> Quality List</h4>
         <a href="rtsp://stream2.htv.bg:1935/securestreaming/android.sdp">
             <div class="item item-thumbnail-left live-background">
-                <img src="img/htvbg-sd.png">
+                <img src="img/htvbg-sd-icon.png">
                 <div style="margin:15px;"></div>
                 <h2>Low quality</h2>
                 <p style="color:white">Available even with mobile data.</p>
@@ -18,7 +18,7 @@
         </a>
         <a href="rtsp://stream2.htv.bg:1935/securestreaming/android.sdp">
             <div class="item item-thumbnail-left live-background">
-                <img src="img/htvbg-hd.png">
+                <img src="img/htvbg-hd-icon.png">
                 <div style="margin:15px;"></div>
                 <h2>High quality HD</h2>
                 <p style="color:white">Fast network is needed.</p>
@@ -30,12 +30,11 @@
         </h4>
         <!--SCHEDULE ITEMS-->
         <!--SCHEDULE ITEMS-->
-
         <ion-list>
             <ion-item class="item card " ng-repeat="item in data.data.items">
                 <a href="rtsp://stream2.htv.bg:1935/securestreaming/android.sdp">
                     <div class="item item-avatar-right">
-                        <img src="/img/play_green.png" />
+                        <img src="/img/play_green-icon.png" />
                         <h2><b><mark>{{ item.start }}</mark></b></h2>
                         <h3>{{ item.title }}</h3>
                         <p>{{item.category}}</p>
