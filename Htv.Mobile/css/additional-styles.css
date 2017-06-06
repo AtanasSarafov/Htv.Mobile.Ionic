@@ -101,3 +101,7 @@ mark {
     font-size: 1em;
     line-height: 25px;
 }
+
+.menu-bar {
+    padding-left: 15px;
+}

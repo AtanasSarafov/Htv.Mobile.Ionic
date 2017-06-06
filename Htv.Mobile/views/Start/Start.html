@@ -1,6 +1,5 @@
 ﻿
 <ion-side-menus enable-menu-with-back-views="false">
-
     <ion-side-menu-content>
         <ion-nav-bar class="bar-positive custom-dark">
             <ion-nav-back-button class="no-text"></ion-nav-back-button>
@@ -18,75 +17,60 @@
         </button>-->
         <ion-nav-view name="menuContent"></ion-nav-view>
     </ion-side-menu-content>
-
     <ion-side-menu side="left">
         <ion-header-bar class="expanded">
-            <img src="img/logo.png" class="avatar fade" style="top:37px;width:108px;">
+            <img src="img/logo.png" class="avatar fade" style="top:37px; width:108px;">
             <!--<div class="menu-bottom">
                 Htv.bg
             </div>-->
         </ion-header-bar>
         <ion-content class="stable-bg has-expanded-header">
-            <ion-list>
-                <ion-item nav-clear menu-close href="#/app/home" style="font-size:large">
-                    <i class="icon ion-home"></i> Home
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/liveTv" style="font-size:large">
-                    <i class="icon ion-ios-film"></i> Live TV
-                </ion-item>
-
-                <div class="item item-divider">
-                    News
-                </div>
+            <div class="menu-bar">
                 <ion-list>
-                    <ion-item nav-clear menu-close ui-sref="app.newsList({categoryName: '{{type.name}}', categoryKey: '{{type.key}}'})" style="font-size:large" ng-repeat="type in dataTypes.newsCategories track by $index">
-                        &nbsp;&nbsp; {{type.name}}
+                    <ion-item nav-clear menu-close href="#/app/home" style="font-size:large">
+                        <i class="icon ion-home"></i> Home
                     </ion-item>
+                    <ion-item nav-clear menu-close href="#/app/liveTv" style="font-size:large">
+                        <i class="icon ion-ios-film"></i>Live TV
+                    </ion-item>
+                    <div class="item item-divider live-background">
+                        <h1 style="color: #fff; font-size: 22px;">News</h1>
+                    </div>
+                    <div class="items-separator row card"></div>
+                    <ion-list>
+                        <ion-item nav-clear menu-close ui-sref="app.newsList({categoryName: '{{type.name}}', categoryKey: '{{type.key}}'})" ng-repeat="type in dataTypes.newsCategories track by $index" style="font-size:large">
+                            {{type.name}}
+                        </ion-item>
+                    </ion-list>
+                    <div class="item item-divider live-background">
+                        <h1 style="color: #fff; font-size: 22px;">Videos</h1>
+                    </div>
+                    <div class="items-separator row card"></div>
+                    <ion-list>
+                        <ion-item nav-clear menu-close ui-sref="app.videoList({categoryName: '{{type.name}}', categoryKey: '{{type.key}}'})" ng-repeat="type in dataTypes.videoCategories track by $index" style="font-size:large">
+                            {{type.name}}
+                        </ion-item>
+                    </ion-list>
+                    <div class="item item-divider live-background">
+                        <h1 style="color: #fff; font-size: 22px;">Support</h1>
+                    </div>
+                    <div class="items-separator row card"></div>
+                    <ion-list>
+                        <ion-item nav-clear menu-close href="#/app/newsList" style="font-size:large">
+                            <i class="icon ion-cash"></i> Donation
+                        </ion-item>
+                    </ion-list>
+                    <div class="item item-divider live-background">
+                        <h1 style="color: #fff; font-size: 22px;">More</h1>
+                    </div>
+                    <div class="items-separator row card"></div>
+                    <ion-list>
+                        <ion-item nav-clear menu-close href="#/app/newsList" style="font-size:large">
+                            <i class="icon ion-network"></i> Contacts
+                        </ion-item>
+                    </ion-list>
                 </ion-list>
-
-                <div class="item item-divider">
-                    Videos
-                </div>
-                <ion-list>
-                    <ion-item nav-clear menu-close ui-sref="app.videoList({categoryName: '{{type.name}}', categoryKey: '{{type.key}}'})" style="font-size:large" ng-repeat="type in dataTypes.videoCategories track by $index">
-                        &nbsp;&nbsp; {{type.name}}
-                    </ion-item>
-                </ion-list>
-
-                <div class="item item-divider">
-                    More
-                </div>
-                <ion-list>
-                    <ion-item nav-clear menu-close href="#/app/newsList" style="font-size:large">
-                        <i class="icon ion-cash"></i> Donation
-                    </ion-item>
-                </ion-list>
-
-                <div class="item item-divider">
-                    -- TEST --
-                </div>
-                <ion-list>
-                    <ion-item nav-clear menu-close href="#/app/newsList" style="font-size:large">
-                        <i class="icon ion-network"></i> News
-                    </ion-item>
-                    <ion-item nav-clear menu-close style="font-size:large" href="#/app/components">
-                        Components+
-                    </ion-item>
-                    <ion-item nav-clear menu-close style="font-size:large" href="#/app/extensions">
-                        - Extensions
-                    </ion-item>
-                    <ion-item nav-clear menu-close style="font-size:large" href="#/app/lists">
-                        - Motion Lists
-                    </ion-item>
-                    <ion-item nav-clear menu-close style="font-size:large" href="#/app/motion">
-                        - Motion Elements
-                    </ion-item>
-                    <ion-item nav-clear menu-close style="font-size:large" href="#/app/ink">
-                        - Ink
-                    </ion-item>
-                </ion-list>
-            </ion-list>
+            </div>
         </ion-content>
     </ion-side-menu>
-
 </ion-side-menus>
