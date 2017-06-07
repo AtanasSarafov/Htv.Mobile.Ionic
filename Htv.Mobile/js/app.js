@@ -129,6 +129,14 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
                 }
             }
         })
+        .state('app.donation', {
+            url: '/donation',
+            views: {
+                'menuContent': {
+                    templateUrl: 'views/donation/donation.html'
+                }
+            }
+        })
         .state('app.ink', {
             url: '/ink',
             views: {
