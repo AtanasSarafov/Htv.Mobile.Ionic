@@ -570,6 +570,7 @@
     <Content Include="views\components.html">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\Contacts\Contacts.html" />
     <Content Include="views\Donation\Donation.html" />
     <Content Include="views\extensions.html">
       <SubType>Content</SubType>
@@ -726,6 +727,7 @@
     <Folder Include="views\Home\" />
     <Folder Include="views\LiveTv\" />
     <Folder Include="views\Donation\" />
+    <Folder Include="views\Contacts\" />
     <Folder Include="views\Search\" />
     <Folder Include="views\Start\" />
     <Folder Include="views\Video\" />

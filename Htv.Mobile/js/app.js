@@ -137,6 +137,14 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
                 }
             }
         })
+        .state('app.contacts', {
+            url: '/contacts',
+            views: {
+                'menuContent': {
+                    templateUrl: 'views/contacts/contacts.html'
+                }
+            }
+        })
         .state('app.ink', {
             url: '/ink',
             views: {
