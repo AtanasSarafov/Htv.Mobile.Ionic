@@ -1,13 +1,42 @@
 <ion-view view-title="">
     <ion-content>
-        <div class="item-image" style="max-width: 100%;">
-            <img src="https://www.htv.bg/images/donation%201000x250-01.jpg" />
-            <div class="highlight-separator"></div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius ipsum quis mollis molestie. Etiam eget augue ex. Cras commodo semper tincidunt. Sed eros ligula, volutpat vel auctor vitae, vulputate in eros. Integer maximus, tortor ut fringilla cursus, nibh orci pharetra quam, ac rutrum quam quam ullamcorper magna. Maecenas sem metus, feugiat vel est vel, efficitur sagittis nulla. Phasellus vestibulum urna eu nisi iaculis, nec aliquam dui aliquam. Nam maximus lacus nibh, ut placerat felis sagittis a.</p>
-        <h3>You may donate to HTV vie some of the following methods:</h3>
-        <div class="item item-divider live-background">
-            <h1 style="color: #fff; font-size: 22px;">1. PayPal or Debit/Credit card</h1>
-        </div>
+        <ion-item class="card">
+            <div class="item item-text-wrap">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius ipsum quis mollis molestie. Etiam eget augue ex.</p>
+            </div>
+            <div class="item item-divider live-background">
+                <h1 style="color: #fff; font-size: 22px;">Contact Form</h1>
+            </div>
+            <div class="item item-text-wrap">
+                <form id="contact-form">
+                    <input type="text" placeholder="Name" required />
+                    <input type="text" placeholder="Surname" />
+                    <input type="tel" placeholder="Phone" />
+                    <input type="email" placeholder="E-mail" />
+                    <textarea rows="8" cols="60" placeholder="Subject" required></textarea>
+                    <input type="submit" value="SEND" class="button button-bar button-positive" />
+                </form>
+            </div>
+            <div class="item item-divider live-background">
+                <h1 style="color: #fff; font-size: 22px;">Other Ways</h1>
+            </div>
+            <div class="item item-text-wrap">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius ipsum quis mollis molestie. Etiam eget augue ex.</p>
+            </div>
+            <div class="item item-body" style="line-height: 10px;">
+                <div class="items-separator row card"></div>
+                <mark> <i class="icon ion-home"></i> Adress ></mark>
+                <p>Harmony TV</p>
+                <p>St. Ivan Rilski Str.16</p>
+                <p>Plovdiv 4003, Bulgaria</p>
+                <div class="items-separator row card"></div>
+                <mark> <i class="icon ion-android-phone-portrait"></i> Phone> </mark>
+                <p>Office: 032 968649</p>
+                <div class="items-separator row card"></div>
+                <mark> <i class="icon ion-android-mail"></i> Internet > </mark>
+                <p>Email: info@HTV.bg</p>
+                <p>Web: https://HTV.bg</p>
+            </div>
+        </ion-item>
     </ion-content>
 </ion-view>

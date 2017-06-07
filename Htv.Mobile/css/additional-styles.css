@@ -105,3 +105,22 @@ mark {
 .menu-bar {
     padding-left: 15px;
 }
+
+
+
+
+#contact-form input, #contact-form textarea {
+    border-radius: 3px;
+    width: 93%;
+    height: 35px;
+    border: 1px solid #8e8e8e;
+    padding-left: 15px;
+    margin: 8px;
+}
+
+    #contact-form input:focus, #contact-form textarea:focus {
+        outline: none !important;
+        background-color: #c2ffd9;
+        border-color: #004488;
+        box-shadow: 0 0 10px #719ECE;
+    }
