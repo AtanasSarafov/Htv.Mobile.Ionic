@@ -1,4 +1,4 @@
-<ion-view view-title="" ng-init="loadNewsItem()">
+﻿<ion-view view-title="" ng-init="loadNewsItem()">
     <ion-content>
         <div class="item item-image main-image-background" style="width: 101%;">
             <img ng-src="{{newsItem.img}}">
@@ -12,7 +12,7 @@
             {{newsItem.content}}
         </div>
         <div class="im-wrapper">
-            <h4 class="no-border no-padding-bottom">Related News</h4>
+            <h4 class="no-border no-padding-bottom">{{"Related" | translate}}</h4>
         </div>
         <ion-list class="animated fadeInUp">
             <ion-item nav-clear menu-close class="item-icon-right item-avatar">

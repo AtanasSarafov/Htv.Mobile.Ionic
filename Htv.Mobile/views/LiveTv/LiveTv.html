@@ -1,27 +1,27 @@
-
+﻿
 <ion-view view-title="" ng-init="getSchedule()">
     <ion-content>
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
         </ion-refresher>
         <div class="bar bar-subheader bar-stable static text-center">
-            <strong class="title">All Of Htv.bg in One Place</strong>
+            <strong class="title">{{ "AllInOne" | translate}}</strong>
         </div>
         <!-- LIVESTREAM QUALITY -->
-        <h4><i class="icon ion-ios-videocam"></i> Quality List</h4>
+        <h4>&nbsp;&nbsp;<i class="icon ion-ios-videocam"></i> {{ "Qualities" | translate}}</h4>
         <a href="rtsp://stream2.htv.bg:1935/securestreaming/android.sdp">
             <div class="item item-thumbnail-left live-background">
                 <img src="img/htvbg-sd-icon.png">
                 <div style="margin:15px;"></div>
-                <h2>Low quality</h2>
-                <p style="color:white">Available even with mobile data.</p>
+                <h2>{{ "LowQuality" | translate}}</h2>
+                <p style="color:white">{{ "SdAvailable" | translate}}</p>
             </div>
         </a>
         <a href="rtsp://stream2.htv.bg:1935/securestreaming/android.sdp">
             <div class="item item-thumbnail-left live-background">
                 <img src="img/htvbg-hd-icon.png">
                 <div style="margin:15px;"></div>
-                <h2>High quality HD</h2>
-                <p style="color:white">Fast network is needed.</p>
+                <h2>{{ "HighQuality" | translate}}</h2>
+                <p style="color:white">{{ "HdAvailable" | translate}}</p>
             </div>
         </a>
         <h4 id="schedule-date">
@@ -48,7 +48,7 @@
           </ion-item>-->
         <div class="bar bar-footer custom-dark" style="position: static; color:white;">
             <div class="title">
-                <a href="http://www.htv.bg" style="text-decoration: none">Full version of HTV.bg</a>
+                <a href="http://www.htv.bg" style="text-decoration: none">{{ "FullVersion" | translate}}</a>
             </div>
         </div>
     </ion-content>

@@ -1,42 +1,50 @@
-<ion-view view-title="">
+﻿<ion-view view-title="">
     <ion-content>
         <ion-item class="card">
+            <div class="item item-divider live-background">
+                <h1 style="color: #fff; font-size: 22px;">{{ "Contacts" | translate }}</h1>
+            </div>
             <div class="item item-text-wrap">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius ipsum quis mollis molestie. Etiam eget augue ex.</p>
+                <p>{{ "Other2" | translate}}</p>
             </div>
             <div class="item item-divider live-background">
-                <h1 style="color: #fff; font-size: 22px;">Contact Form</h1>
+                <h1 style="color: #fff; font-size: 22px;">{{ "ContactForm" | translate }}</h1>
             </div>
             <div class="item item-text-wrap">
-                <form id="contact-form">
-                    <input type="text" placeholder="Name" required />
-                    <input type="text" placeholder="Surname" />
-                    <input type="tel" placeholder="Phone" />
-                    <input type="email" placeholder="E-mail" />
-                    <textarea rows="8" cols="60" placeholder="Subject" required></textarea>
-                    <input type="submit" value="SEND" class="button button-bar button-positive" />
+                <form id="contact-form" method="get">
+                    <input type="text" placeholder="Име" id="name" name="name" required />
+                    <input type="text" placeholder="Фамилия" name="surname" id="surname" />
+                    <input type="tel" placeholder="Телефон" id="phone" name="phone" />
+                    <input type="email" placeholder="E-mail" id="email" name="email" />
+                    <textarea rows="8" cols="60" placeholder="Съобщение" id="subject" name="text" required></textarea>
+                    <input type="submit" value="ИЗПРАТИ" class="button button-bar button-positive" name="send" />
                 </form>
             </div>
             <div class="item item-divider live-background">
-                <h1 style="color: #fff; font-size: 22px;">Other Ways</h1>
+                <h1 style="color: #fff; font-size: 22px;">{{ "OtherContacts" | translate }}</h1>
             </div>
             <div class="item item-text-wrap">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius ipsum quis mollis molestie. Etiam eget augue ex.</p>
+                <p>{{ "Other1" | translate}}</p>
             </div>
             <div class="item item-body" style="line-height: 10px;">
                 <div class="items-separator row card"></div>
-                <mark> <i class="icon ion-home"></i> Adress ></mark>
-                <p>Harmony TV</p>
-                <p>St. Ivan Rilski Str.16</p>
-                <p>Plovdiv 4003, Bulgaria</p>
+                <mark> <i class="icon ion-home"></i> {{ "Adress" | translate }} ></mark>
+                <h3>{{ "Company" | translate}}</h3>
+                <h3>{{ "Street" | translate}}</h3>
+                <h3>{{ "City" | translate}}</h3>
                 <div class="items-separator row card"></div>
-                <mark> <i class="icon ion-android-phone-portrait"></i> Phone> </mark>
-                <p>Office: 032 968649</p>
+                <mark> <i class="icon ion-android-phone-portrait"></i> {{ "Phone" | translate }} > </mark>
+                <h3><i class="icon  ion-ios-telephone"></i> &nbsp; 032 968649</h3>
                 <div class="items-separator row card"></div>
-                <mark> <i class="icon ion-android-mail"></i> Internet > </mark>
-                <p>Email: info@HTV.bg</p>
-                <p>Web: https://HTV.bg</p>
+                <mark> <i class="icon  ion-android-mail"></i>{{ "Internet" | translate }}  > </mark>
+                <h3><i class="icon  ion-email"></i> &nbsp; info@HTV.bg</h3>
+                <h3><i class="icon ion-android-globe"></i> &nbsp; www.HTV.bg</h3>
             </div>
         </ion-item>
+        <div class="bar bar-footer custom-dark" style="position: static; color:white;">
+            <div class="title">
+                <a href="http://www.htv.bg" style="text-decoration: none">{{ "FullVersion" | translate}}</a>
+            </div>
+        </div>
     </ion-content>
 </ion-view>
