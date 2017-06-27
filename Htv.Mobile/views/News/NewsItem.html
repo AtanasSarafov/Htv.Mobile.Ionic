@@ -5,50 +5,19 @@
             <div class="highlight-separator"></div>
             <div>
                 <h2 class="h1-modified" style="white-space: initial; margin: 7px;">{{newsItem.title}}</h2>
-                <p style="color: white; margin: 11px;"><i class="icon ion-ios-clock"> {{newsItem.date}}</i></p>
+                <p style="color: white; margin: 11px;"><i class="icon ion-ios-clock"> {{newsItem.date}} &nbsp;<i class="icon ion-eye"> {{newsItem.readCount}}</i></i></p>
             </div>
         </div>
-        <div class="item item-body">
-            {{newsItem.content}}
+        <div class="item item-body" ng-bind-html="newsItem.content">
         </div>
         <div class="im-wrapper">
             <h4 class="no-border no-padding-bottom">{{"Related" | translate}}</h4>
         </div>
         <ion-list class="animated fadeInUp">
-            <ion-item nav-clear menu-close class="item-icon-right item-avatar">
-                <img src="img/rnews1.png">
-                <h2><b>Title</b></h2>
-                <p>ionicMaterialMotion.blinds();</p>
-                <i class="icon ion-chatbubble muted"></i>
-            </ion-item>
-            <ion-item nav-clear menu-close class="item-icon-right item-avatar">
-                <img src="img/rnews2.png">
-                <h2><b>Animate-ripple</b></h2>
-                <p>ionicMaterialMotion.ripple();</p>
-                <i class="icon ion-chatbubble muted"></i>
-            </ion-item>
-            <ion-item nav-clear menu-close class="item-icon-right item-avatar">
-                <img src="img/rnews3.png">
-                <h2><b>.animate-fade-slide-in</b></h2>
-                <p>ionicMaterialMotion.fadeSlideIn();</p>
-                <i class="icon ion-chatbubble muted"></i>
-            </ion-item>
-            <ion-item nav-clear menu-close class="item-icon-right item-avatar">
-                <img src="img/rnews4.png">
-                <h2><b>.animate-fade-slide-in-right</b></h2>
-                <p>ionicMaterialMotion.fadeSlideInRight();</p>
-                <i class="icon ion-chatbubble muted"></i>
-            </ion-item>
-            <ion-item nav-clear menu-close class="item-icon-right item-avatar">
-                <img src="img/rnews5.png">
-                <h2><b>.animate-fade-slide-in-right</b></h2>
-                <p>ionicMaterialMotion.fadeSlideInRight();</p>
-                <i class="icon ion-chatbubble muted"></i>
-            </ion-item>
-            <ion-item nav-clear menu-close class="item-icon-right item-avatar">
-                <img src="img/rnews6.png">
-                <h2><b>.animate-fade-slide-in-right</b></h2>
-                <p>ionicMaterialMotion.fadeSlideInRight();</p>
+            <ion-item nav-clear menu-close class="item-icon-right item-avatar" ng-repeat="relatedNews in relatedNewsItems" ui-sref="app.newsItem({id: {{relatedNews.id}} })">
+                <img ng-src="{{relatedNews.img}}">
+                <h2><b>{{relatedNews.title}}</b></h2>
+                <!--<p>{{relatedNews.title}}</p>-->
                 <i class="icon ion-chatbubble muted"></i>
             </ion-item>
         </ion-list>

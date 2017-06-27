@@ -12,8 +12,6 @@ app.controller('StartCtrl', function ($scope, $ionicModal, $ionicPopover, $timeo
             }, function errorCallback(response) {
                 console.error(response);
             });
-
-        return newsList;
     };
 
     function _createViewModel(categoriesItems) {

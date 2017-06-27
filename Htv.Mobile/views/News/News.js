@@ -22,8 +22,6 @@ app.controller('NewsCtrl', function ($scope, $stateParams, $http, dataService, d
             }, function errorCallback(response) {
                 console.error(response);
             });
-
-        return newsList;
     };
 
     $scope.loadVideos = function () {

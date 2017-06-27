@@ -6,7 +6,7 @@
         <div class="bar bar-subheader bar-stable static text-center">
             <strong class="title">{{categoryName}}</strong>
         </div>
-        <a ng-href="#/app/newsItem{{highlightedItem.id}}" style="text-decoration: none;">
+        <a ng-href="#/app/newsItem{{highlightedItem.id}}?{{categoryKey}}" style="text-decoration: none;">
             <div class="list stable-bg animated fadeInDownBig main-image-background">
                 <div class="item item-image">
                     <img ng-src="{{highlightedItem.img}}">
@@ -21,7 +21,7 @@
         </a>
         <div class="item-block">
             <ion-list>
-                <ion-item class="list animated fadeInUp custom" ng-repeat="newsItem in data.newsItems" ui-sref="app.newsItem({id: {{newsItem.id}} })">
+                <ion-item class="list animated fadeInUp custom" ng-repeat="newsItem in data.newsItems" ui-sref="app.newsItem({id: {{newsItem.id}}, categoryKey : {{categoryKey}} })">
                     <ion-thumbnail item-left>
                         <img class="item-thumb col col-34 " ng-src="{{ newsItem.img }}" />
                         <i class="icon ion-play" style="color:white;" ng-if="newsItem.duration != undefined">

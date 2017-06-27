@@ -12,7 +12,7 @@ app.controller('VideoCtrl', function ($scope, $stateParams, $http, dataService, 
         // Default values.
         limit = typeof limit !== 'undefined' ? limit : 10;
         offset = typeof offset !== 'undefined' ? offset : 0;
-        category = typeof category !== 'undefined' ? category : null;
+        category = typeof category !== 'undefined' ? category : $scope.categoryKey;
 
         var videosList = dataService.getVideosList(limit, offset, category);
         videosList.then(

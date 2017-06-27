@@ -38,8 +38,8 @@
                     </div>
                     <div class="items-separator row card"></div>
                     <ion-list>
-                        <ion-item nav-clear menu-close ui-sref="app.newsList({categoryName: '{{type.name}}', categoryKey: '{{type.key}}'})" ng-repeat="type in data.newsCategories track by $index" style="font-size:large">
-                            {{type.name}}
+                        <ion-item nav-clear menu-close ui-sref="app.newsList({categoryName: '{{category.name}}', categoryKey: '{{category.key}}'})" ng-repeat="category in data.newsCategories track by $index" style="font-size:large">
+                            {{category.name}}
                         </ion-item>
                     </ion-list>
                     <div class="item item-divider live-background">
@@ -47,8 +47,8 @@
                     </div>
                     <div class="items-separator row card"></div>
                     <ion-list>
-                        <ion-item nav-clear menu-close ui-sref="app.videoList({categoryName: '{{type.name}}', categoryKey: '{{type.key}}'})" ng-repeat="type in data.videoCategories track by $index" style="font-size:large">
-                            {{type.name}}
+                        <ion-item nav-clear menu-close ui-sref="app.videoList({categoryName: '{{category.name}}', categoryKey: '{{category.key}}'})" ng-repeat="category in data.videoCategories track by $index" style="font-size:large">
+                            {{category.name}}
                         </ion-item>
                     </ion-list>
                     <div class="item item-divider live-background">

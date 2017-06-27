@@ -125,7 +125,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
             }
         })
         .state('app.newsItem', {
-            url: '/newsItem:id',
+            url: '/newsItem:id?categoryKey',
             views: {
                 'menuContent': {
                     templateUrl: 'views/news/newsItem.html',
