@@ -159,6 +159,8 @@
     <Content Include="lib\angular-ui-router\src\viewScroll.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="lib\angular-vimeo-embed\angular-vimeo-embed.js" />
+    <Content Include="lib\angular-vimeo-embed\angular-vimeo-embed.min.js" />
     <Content Include="lib\angularTranslate\angular-translate.min.js">
       <SubType>Content</SubType>
     </Content>
@@ -602,6 +604,7 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\Video\VideoItem.html" />
+    <Content Include="views\Video\VideoItem.js" />
     <Content Include="views\Video\VideoList.html" />
     <Content Include="views\Video\Video.js" />
     <None Include=".abignore" />
@@ -712,6 +715,7 @@
     <Folder Include="lib\ionic\scss\ionicons\" />
     <Folder Include="lib\jQuery\" />
     <Folder Include="lib\angularTranslate\" />
+    <Folder Include="lib\angular-vimeo-embed\" />
     <Folder Include="lib\waves\" />
     <Folder Include="lib\waves\dist\" />
     <Folder Include="lib\waves\docs\" />

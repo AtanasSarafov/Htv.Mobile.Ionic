@@ -1,59 +1,74 @@
-app.controller('VideoCtrl', function ($scope, $stateParams, $http) {
+app.controller('VideoCtrl', function ($scope, $stateParams, $http, dataService, displayUtils) {
     $scope.categoryName = $stateParams.categoryName;
     $scope.categoryKey = $stateParams.categoryKey;
 
+    //ionicMaterialInk.displayEffect();
     $scope.noMoreItemsAvailable = false;
+    $scope.limit = 10;
+    $scope.offset = 10;
 
     //Functions
-    $scope.loadNews = function () {
-        $http.get('').success(function (data) {
+    $scope.loadVideos = function (limit, offset, category) {
+        // Default values.
+        limit = typeof limit !== 'undefined' ? limit : 10;
+        offset = typeof offset !== 'undefined' ? offset : 0;
+        category = typeof category !== 'undefined' ? category : null;
 
-            var tempData = {
-                newsItems: [
-                    {
-                        title: 'Arya Stark',
-                        subTitle: 'The quickest way to a man\'s heart is through Arya\'s needle. She has two speeds: Walk and Kill, and is the reason why Waldo is still hiding.The quickest way to a man\'s heart is through Arya\'s needle. She has two speeds: Walk and Kill, and is the reason why Waldo is still hiding.',
-                        img: 'img/news2.png',
-                        date: '10.02.2016'
-                    },
-                    {
-                        title: 'Video item - Даниел Коленда идва за съживителни събрания в България!',
-                        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                        img: 'img/news1.png',
-                        date: '10.02.2016',
-                        duration: '10:34'
-                    },
-                    {
-                        title: 'Не пеем за пари! Честито Рождество Христово!',
-                        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                        img: 'img/news2.png',
-                        date: '10.02.2016'
-                    },
-                    {
-                        title: 'В София се проведе първата Европейска конференция „Вяра“',
-                        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                        img: 'img/news3.png',
-                        date: '10.02.2016'
-                    },
-                    {
-                        title: 'В София се проведе първата Европейска конференция „Вяра“',
-                        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                        img: 'img/login.jpg',
-                        date: '10.02.2016'
-                    },
-                ]
-            };
+        var videosList = dataService.getVideosList(limit, offset, category);
+        videosList.then(
+            function successCallback(videosItemsResponseData) {
+                debugger;
+                var videoItems = dataService._parseToVideoItem(videosItemsResponseData);
+                var dataViewModel = _createViewModel(videoItems);
+                $scope.data = dataViewModel;
+                $scope.highlightedItem = _createViewModel(videoItems[0]).videoItems[0];
+            }, function errorCallback(response) {
+                console.error(response);
+            });
 
-            $scope.data = tempData;
-            $scope.highlightedItem = tempData.newsItems[0];
-        });
+        return videosList;
     };
+
+    function _createViewModel(videoItems) {
+        var viewModel = { videoItems: [] }
+
+        if (videoItems instanceof Array) {
+            for (var i = 0; i < videoItems.length; i++) {
+                // NOTE: The first element is highlightedItem.
+                if (i === 0) continue;
+
+                viewModel.videoItems.push(
+                    {
+                        id: videoItems[i].id,
+                        title: videoItems[i].title,
+                        description: videoItems[i].description,
+                        img: videoItems[i].img,
+                        date: displayUtils.getDisplayDate(videoItems[i].date),
+                        source: videoItems[i].source
+                    }
+                );
+            }
+        }
+        else if (typeof (videoItems) != 'undefined' && videoItems != null) {
+            viewModel.videoItems.push(
+                {
+                    id: videoItems.id,
+                    title: videoItems.title,
+                    description: videoItems.description,
+                    img: videoItems.img,
+                    date: displayUtils.getDisplayDate(videoItems.date),
+                    source: videoItems.source
+                }
+            );
+        }
+        return viewModel;
+    }
 
     $scope.doRefresh = function () {
         $scope.loadNews();
 
         $scope.data = $scope.data;
-        $scope.highlightedItem = $scope.data.newsItems[0];
+        $scope.highlightedItem = $scope.data.videoItems[0];
         $scope.$broadcast('scroll.refreshComplete');
     };
 
@@ -106,10 +121,10 @@ app.controller('VideoCtrl', function ($scope, $stateParams, $http) {
                 ];
 
         //TODO: Test code.
-        if ($scope.data.newsItems.length > 15)
+        if ($scope.data.videoItems.length > 15)
             $scope.noMoreItemsAvailable = true;
 
-        $scope.data.newsItems = $scope.data.newsItems.concat(newTempData);
+        $scope.data.videoItems = $scope.data.videoItems.concat(newTempData);
         $scope.$broadcast('scroll.infiniteScrollComplete');
     };
 })

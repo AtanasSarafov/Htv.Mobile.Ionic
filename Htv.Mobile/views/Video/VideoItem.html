@@ -1,36 +1,26 @@
-<ion-view view-title="">
+<ion-view view-title="" ng-init="loadVideoItem()">
     <ion-content>
-
-
         <div class="item item-image" style="width: 101%;">
             <div>
-                <h1 style="color: #D3D3D3;white-space: initial;"><b>The quickest way to a man's heart</b></h1>
+                <h1 style="color: #D3D3D3;white-space: initial;"><b>{{videoItem.title}}</b></h1>
                 <p>
-                    <i class="icon ion-ios-clock"> 10.12.2016 &nbsp;<i class="icon ion-eye"> 85</i></i>
+                    <i class="icon ion-ios-clock"> {{videoItem.date}} &nbsp;<i class="icon ion-eye"> {{videoItem.readCount}}</i></i>
                 </p>
             </div>
         </div>
 
-
         <div class="item">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/aHteXxf1zA8" frameborder="0" allowfullscreen></iframe>
-        </div>
+            <vimeo-video player-id="video3" video-url="'https://vimeo.com/97564754'" player-width="360" player-height="260"></vimeo-video>
+        </div2
+
+        <!--<div id="embed" ng-show="loadVideo()">{{"LoadingVideo" | translate}}</div>-->
+
+        <!-- Define the player's width and height -->
+        <!--<vimeo-video player-id="video3" video-url="'https://vimeo.com/97564754'" player-width="1" player-height="360"></vimeo-video>-->
+
 
         <div class="item item-body">
-            The quickest way to a man's heart is through Arya's needle. She has two speeds: Walk and Kill, and is the reason why Waldo is still hiding.
-            The quickest way to a man's heart is through Arya's needle. She has two speeds: Walk and Kill, and is the reason why Waldo is still hiding.
-            <br /><br />
-            "A critical aspect of motion for material design is to retain the feeling of physicality without sacrificing elegance, simplicity, beauty, and the magic of a seamless user experience."
-            "A critical aspect of motion for material design is to retain the feeling of physicality without sacrificing elegance, simplicity, beauty, and the magic of a seamless user experience."
-            <br /><br />
-            "A critical aspect of motion for material design is to retain the feeling of physicality without sacrificing elegance, simplicity, beauty, and the magic of a seamless user experience."
-            "A critical aspect of motion for material design is to retain the feeling of physicality without sacrificing elegance, simplicity, beauty, and the magic of a seamless user experience."
-
-            <br /><br /><br /><br />
-
-
-
-
+           {{videoItem.description}}
         </div>
 
         <div class="im-wrapper">

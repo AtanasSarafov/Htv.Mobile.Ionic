@@ -1,4 +1,4 @@
-app.controller('NewsCtrl', function ($scope, $stateParams, $http) {
+app.controller('NewsCtrl', function ($scope, $stateParams, $http, dataService, displayUtils) {
     debugger;
     $scope.categoryName = $stateParams.categoryName;
     $scope.categoryKey = $stateParams.categoryKey;

@@ -1,12 +1,12 @@
 ﻿
-<ion-view view-title="" ng-init="loadNews()">
+<ion-view view-title="" ng-init="loadVideos()">
     <ion-content>
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
         </ion-refresher>
         <div class="bar bar-subheader bar-stable static text-center">
             <strong class="title">{{categoryName}}</strong>
         </div>
-        <a href="#/app/newsItem" style="text-decoration: none;">
+        <a href="#/app/videoItem{{highlightedItem.id}}" style="text-decoration: none;">
             <div class="list stable-bg animated fadeInDownBig main-image-background" style="background-color:black;">
                 <div class="item item-image">
                     <img ng-src="{{highlightedItem.img}}">
@@ -16,33 +16,23 @@
                         <p style="color:#fff; margin: 10px 5px; "> <i class="icon ion-ios-clock"> {{highlightedItem.date}}</i></p>
                     </div>
                 </div>
-                <!--
-                <div class="item item-body" style="color: #D3D3D3;">
-                    {{highlightedItem.subTitle}}
-                </div>
-                    -->
+                {{highlightedItem.subTitle}}
             </div>
         </a>
         <div class="item-block">
             <ion-list>
-                <ion-item class="list animated fadeInUp custom" ng-repeat="newsItem in data.newsItems" ui-sref="app.newsItem({id: {{newsItem.id}} }" ui-sref="app.newsItem({id: {{newsItem.id}} }">
+                <ion-item class="list animated fadeInUp custom" ng-repeat="videoItem in data.videoItems" ui-sref="app.videoItem({id: {{videoItem.id}} })">
                     <ion-thumbnail item-left>
-                        <img class="item-thumb col col-34 " ng-src="{{ newsItem.img }}" />
-                        <i class="icon ion-play" ng-if="newsItem.duration != undefined">
-                            {{ newsItem.duration }}
+                        <img class="item-thumb col col-34 " ng-src="{{ videoItem.img }}" />
+                        <i class="icon ion-play" ng-if="videoItem.duration != undefined">
+                            {{ videoItem.duration }}
                         </i>
-                        <!--ng-if="{{newsItem.dura
-                        </i><!--ng-if="{{newsItem.duration != undefined}}"-->
                     </ion-thumbnail>
                     <div class="item-title">
                         <mark class="right">
-                            <i class="icon ion-ios-clock"> {{newsItem.date}}</i>
+                            <i class="icon ion-ios-clock"> {{videoItem.date}}</i>
                         </mark>
-                        <h3 style="white-space: initial; margin: 5px;"><b>{{ newsItem.title }}</b></h3>
-                        <!-- <p>{{ newsItem.subTitle }}</p>-->
-                        <!--<ion-item ng-if="$index % 9 == 0" class="item-image">
-                            <img src="img/banner.png" />
-                        </ion-item>-->
+                        <h3 style="white-space: initial; margin: 5px;"><b>{{ videoItem.title }}</b></h3>
                     </div>
                     <div class="items-separator row card"></div>
                 </ion-item>

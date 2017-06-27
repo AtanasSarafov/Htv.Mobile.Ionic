@@ -2,6 +2,7 @@ angular.module('App').service('dataService', function ($http) {
 
     var htvMainUrl = "https://www.htv.bg";
     var htvDataUrl = "https://www.htv.bg/rpcdata";
+    var vimeoUrl = "http://www.vimeo.com/";
     var categoriesPath = "/categories";       // | Required: identity | Optional:
     var newsListPath = "/news-list";          // | Required: identity | Optional: limit, offset, categoryId
     var videosListPath = "/videos-list";      // | Required: identity | Optional: limit, offset, categoryId
@@ -24,6 +25,7 @@ angular.module('App').service('dataService', function ($http) {
         return this._httpPost(htvDataUrl + newsListPath, requestData);
     };
 
+    // TODO: Catch NOT FOUND ITEM!
     this.getNewsItem = function (id) {
         if (typeof (id) == undefined || id == null) return;
 
@@ -32,9 +34,26 @@ angular.module('App').service('dataService', function ($http) {
         return this._httpPost(htvDataUrl + newsPath, requestData);
     };
 
-    this.getVideosList = function () {
-        var videosItems = this._httpPost(htvDataUrl + videosListPath)
-        return videosItems;
+    this.getVideosList = function (limit, offset, categoryId) {
+        var requestData = null;
+
+        if (limit || offset || categoryId)
+            requestData = {
+                limit: limit,
+                offset: offset,
+                categoryId: categoryId
+            };
+
+        return this._httpPost(htvDataUrl + videosListPath, requestData);
+    };
+
+    // TODO: Catch NOT FOUND ITEM!
+    this.getVideoItem = function (id) {
+        if (typeof (id) == undefined || id == null) return;
+
+        var requestData = { id: id };
+
+        return this._httpPost(htvDataUrl + videoPath, requestData);
     };
 
     this.getCategories = function () {
@@ -81,6 +100,49 @@ angular.module('App').service('dataService', function ($http) {
 
         return newsItems;
     };
+
+    this._parseToVideoItem = function (data) {
+        var videoItems = [];
+        var dataVideoItems = data.data.videoItems;
+        var singleVideoItem = data.data.video;
+
+        if (data && dataVideoItems instanceof Array) {
+            for (var i = 0; i < dataVideoItems.length; i++) {
+                var item = dataVideoItems[i];
+                videoItems.push(
+                    {
+                        id: item.Id,
+                        title: item.Title,
+                        description: item.Description,
+                        img:  item.Thumb,
+                        date: item.Added,
+                        source: item.Source
+                    }
+                )
+            }
+        }
+        else if (typeof (singleVideoItem) != 'undefined' && singleVideoItem != null) {
+            debugger;
+            videoItems.push(
+                {
+                    id: singleVideoItem.Id,
+                    title: singleVideoItem.Title,
+                    description: singleVideoItem.Description,
+                    content: singleVideoItem.Content,
+                    type: singleVideoItem.Type,
+                    readCount: singleVideoItem.Loaded,
+                    img: singleVideoItem.Thumb,
+                    imgBig: singleVideoItem.ThumbBig,
+                    date: singleVideoItem.Added,
+                    length: singleVideoItem.Length,
+                    source: singleVideoItem.Source,
+                    videoUrl: vimeoUrl + singleVideoItem.Source
+                }
+            );
+        }
+
+        return videoItems;
+    }
 
     this._httpPost = function (url, data) {
         var data;

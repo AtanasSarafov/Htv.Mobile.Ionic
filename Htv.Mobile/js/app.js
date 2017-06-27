@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('App', ['ionic', 'ionic-material', 'pascalprecht.translate']);
+var app = angular.module('App', ['ionic', 'ionic-material', 'pascalprecht.translate', 'vimeoEmbed']);
 
 app.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -33,6 +33,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
         Friday: "Петък",
         Saturday: "Събота",
         Sunday: "Неделя",
+
         // Months.
         January: "Януари",
         February: "Февруари",
@@ -46,6 +47,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
         October: "Октомври",
         November: "Ноември",
         December: "Декември",
+
         // Contact Page
         ContactForm: "Контактна форма",
         OtherContacts: "Други начини",
@@ -67,15 +69,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
         Street: "ул. Иван Рилски 16",
         City: "4003 Пловдив, България",
 
-
-
-
-
         // News Item Page
         Related: "Още новини",
 
         // Live TV Page
-
         AllInOne: "Всичко от HTV.bg на едно място!",
         Qualities: "Избери качество",
         LowQuality: "Ниско качество",
@@ -85,7 +82,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
         FullVersion: "Към пълната версия на HTV.bg",
 
         // Donation Page
-
         DonationIntro: "Нашата цел е чрез програмата на HTV да разпространяваме добри новини, изграждащи послания и позитивни събития, достъпни за всички възрастови категории, като предлагаме висококачествена телевизионна продукция за всеки дом. Като телевизия е важно да помагаме и на християните по целия свят, като им предоставяме програми и поучения свързани с Библията. Желанието ни е да развиваме телевизията като средство за позитивна промяна на хората. За да стане това реалност ни е необходима финансова подкрепа. С Вашето дарение, Вие можете да помогнете за осъществяването на тази благородна цел!",
         DonationTitle: "Може да направите дарение за HTV.bg по един от следните начини:",
         PayPal: "1. PayPal или с карта",
@@ -99,23 +95,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
         FIBANK: "Банка: Първа Инвестиционна Банка",
         EURBANK: "Банка: Юробанк България",
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // Video Item Page
+        LoadingVideo: "Зареждане на видео..."
     });
 
     $stateProvider
@@ -162,11 +143,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
             }
         })
         .state('app.videoItem', {
-            url: '/videoItem',
+            url: '/videoItem:id',
             views: {
                 'menuContent': {
                     templateUrl: 'views/video/videoItem.html',
-                    controller: 'VideoCtrl'
+                    controller: 'VideoItemCtrl'
                 }
             }
         })
