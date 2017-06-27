@@ -144,6 +144,38 @@ angular.module('App').service('dataService', function ($http) {
         return videoItems;
     }
 
+    this._parseToCategoryItem = function (data) {
+        var categoryItems = {
+            newsCategories: [],
+            videoCategories: []
+        }
+
+        var dataNewsCategoriesItems = data.data.data.newsCategories;
+        var dataVideoCategoriesItems = data.data.data.videoCategories;
+
+        for (var i = 0; i < dataNewsCategoriesItems.length; i++) {
+            var item = dataNewsCategoriesItems[i];
+            categoryItems.newsCategories.push(
+                {
+                    id: item.Id,
+                    title: item.Title
+                }
+            )
+        }
+
+        for (var i = 0; i < dataVideoCategoriesItems.length; i++) {
+            var item = dataVideoCategoriesItems[i];
+            categoryItems.videoCategories.push(
+                {
+                    id: item.Id,
+                    title: item.Title
+                }
+            )
+        }
+
+        return categoryItems;
+    }
+
     this._httpPost = function (url, data) {
         var data;
         $http.defaults.headers.common.Authorization = 'Basic YmVlcDpib29w';

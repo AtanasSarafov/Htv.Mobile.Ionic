@@ -56,9 +56,6 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $ionicLoad
 
     $scope.doRefresh = function () {
         $scope.loadNews();
-
-        $scope.data = $scope.data;
-        $scope.highlightedItem = $scope.data.newsItems[0];
         $scope.$broadcast('scroll.refreshComplete');
     };
 

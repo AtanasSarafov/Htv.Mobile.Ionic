@@ -6,8 +6,30 @@ app.controller('NewsCtrl', function ($scope, $stateParams, $http, dataService, d
     $scope.noMoreItemsAvailable = false;
 
     //Functions
-    $scope.loadNews = function () {
+    $scope.loadNews = function (limit, offset, category) {
+        // Default values.
+        limit = typeof limit !== 'undefined' ? limit : 10;
+        offset = typeof offset !== 'undefined' ? offset : 0;
+        category = typeof category !== 'undefined' ? category : $scope.categoryKey;
+        debugger;
+        var newsList = dataService.getNewsList(limit, offset, category);
+        newsList.then(
+            function successCallback(newsItemsResponseData) {
+                var newsItems = dataService._parseToNewsItem(newsItemsResponseData);
+                var dataViewModel = _createViewModel(newsItems);
+                $scope.data = dataViewModel;
+                $scope.highlightedItem = _createViewModel(newsItems[0]).newsItems[0];
+            }, function errorCallback(response) {
+                console.error(response);
+            });
+
+        return newsList;
+    };
+
+    $scope.loadVideos = function () {
         $http.get('').success(function (data) {
+
+            $ionicLoading.hide();
 
             var tempData = {
                 newsItems: [
@@ -23,25 +45,7 @@ app.controller('NewsCtrl', function ($scope, $stateParams, $http, dataService, d
                         img: 'img/news1.png',
                         date: '10.02.2016',
                         duration: '10:34'
-                    },
-                    {
-                        title: 'Не пеем за пари! Честито Рождество Христово!',
-                        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                        img: 'img/news2.png',
-                        date: '10.02.2016'
-                    },
-                    {
-                        title: 'В София се проведе първата Европейска конференция „Вяра“',
-                        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                        img: 'img/news3.png',
-                        date: '10.02.2016'
-                    },
-                    {
-                        title: 'В София се проведе първата Европейска конференция „Вяра“',
-                        subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                        img: 'img/login.jpg',
-                        date: '10.02.2016'
-                    },
+                    }
                 ]
             };
 
@@ -52,66 +56,61 @@ app.controller('NewsCtrl', function ($scope, $stateParams, $http, dataService, d
 
     $scope.doRefresh = function () {
         $scope.loadNews();
-
-        $scope.data = $scope.data;
-        $scope.highlightedItem = $scope.data.newsItems[0];
         $scope.$broadcast('scroll.refreshComplete');
     };
 
     $scope.loadMore = function () {
+        var newsList = dataService.getNewsList($scope.limit, $scope.offset, null);
 
-        var newTempData =
-            [{
-                title: 'Nasko News!',
-                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                img: 'img/tyrion.jpg',
-                date: '10.02.2016',
-                duration: '10:34'
-            },
-            {
-                title: 'Nasko News!',
-                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                img: 'img/tyrion.jpg',
-                date: '10.02.2016'
-            },
-            {
-                title: 'Nasko News!',
-                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                img: 'img/tyrion.jpg',
-                date: '10.02.2016'
-            },
-            {
-                title: 'Nasko News!',
-                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                img: 'img/tyrion.jpg',
-                date: '10.02.2016'
-            },
-            {
-                title: 'Nasko News!',
-                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                img: 'img/tyrion.jpg',
-                date: '10.02.2016'
-            },
-            {
-                title: 'Nasko News!',
-                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                img: 'img/tyrion.jpg',
-                date: '10.02.2016'
-            },
-            {
-                title: 'Nasko News!',
-                subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
-                img: 'img/tyrion.jpg',
-                date: '10.02.2016'
-            }
-            ];
+        newsList.then(
+            function successCallback(newsItemsResponseData) {
+                var newsItems = dataService._parseToNewsItem(newsItemsResponseData);
+                var dataViewModel = _createViewModel(newsItems);
 
-        //TODO: Test code.
-        if ($scope.data.newsItems.length > 15)
-            $scope.noMoreItemsAvailable = true;
+                $scope.data.newsItems = $scope.data.newsItems.concat(dataViewModel.newsItems);
 
-        $scope.data.newsItems = $scope.data.newsItems.concat(newTempData);
-        $scope.$broadcast('scroll.infiniteScrollComplete');
+                //TODO: Test code.
+                if ($scope.data.newsItems.length > 40)
+                    $scope.noMoreItemsAvailable = true;
+
+                $scope.$broadcast('scroll.infiniteScrollComplete');
+                $scope.offset += $scope.offset;
+
+            }, function errorCallback(response) {
+                console.error(response);
+            });
     };
 
+    function _createViewModel(newsItems) {
+        var viewModel = { newsItems: [] }
+
+        if (newsItems instanceof Array) {
+            for (var i = 0; i < newsItems.length; i++) {
+                // NOTE: The first element is highlightedItem.
+                if (i === 0) continue;
+
+                viewModel.newsItems.push(
+                    {
+                        id: newsItems[i].id,
+                        title: newsItems[i].title,
+                        subTitle: newsItems[i].subTitle,
+                        img: newsItems[i].img,
+                        date: displayUtils.getDisplayDate(newsItems[i].date)
+                    }
+                );
+            }
+        }
+        else if (typeof (newsItems) != 'undefined' && newsItems != null) {
+            viewModel.newsItems.push(
+                {
+                    id: newsItems.id,
+                    title: newsItems.title,
+                    subTitle: newsItems.subTitle,
+                    img: newsItems.img,
+                    date: displayUtils.getDisplayDate(newsItems.date)
+                }
+            );
+        }
+        return viewModel;
+    }
 });

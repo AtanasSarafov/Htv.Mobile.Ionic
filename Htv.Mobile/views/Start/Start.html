@@ -1,5 +1,5 @@
 ﻿
-<ion-side-menus enable-menu-with-back-views="false">
+<ion-side-menus enable-menu-with-back-views="false" ng-init="loadCategories()">
     <ion-side-menu-content>
         <ion-nav-bar class="bar-positive custom-dark">
             <ion-nav-back-button class="no-text"></ion-nav-back-button>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="items-separator row card"></div>
                     <ion-list>
-                        <ion-item nav-clear menu-close ui-sref="app.newsList({categoryName: '{{type.name}}', categoryKey: '{{type.key}}'})" ng-repeat="type in dataTypes.newsCategories track by $index" style="font-size:large">
+                        <ion-item nav-clear menu-close ui-sref="app.newsList({categoryName: '{{type.name}}', categoryKey: '{{type.key}}'})" ng-repeat="type in data.newsCategories track by $index" style="font-size:large">
                             {{type.name}}
                         </ion-item>
                     </ion-list>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="items-separator row card"></div>
                     <ion-list>
-                        <ion-item nav-clear menu-close ui-sref="app.videoList({categoryName: '{{type.name}}', categoryKey: '{{type.key}}'})" ng-repeat="type in dataTypes.videoCategories track by $index" style="font-size:large">
+                        <ion-item nav-clear menu-close ui-sref="app.videoList({categoryName: '{{type.name}}', categoryKey: '{{type.key}}'})" ng-repeat="type in data.videoCategories track by $index" style="font-size:large">
                             {{type.name}}
                         </ion-item>
                     </ion-list>
