@@ -12,7 +12,6 @@ app.controller('NewsItemCtrl', function ($scope, $stateParams, $http, dataServic
             });
 
         var offset = null;
-        debugger;
         if (typeof ($stateParams.categoryId) == 'undefined' || $stateParams.categoryId == null)
             offset = getRandomInt(10, 100);
 

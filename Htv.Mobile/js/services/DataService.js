@@ -3,6 +3,7 @@ angular.module('App').service('dataService', function ($http) {
     var htvMainUrl = "https://www.htv.bg";
     var htvDataUrl = "https://www.htv.bg/rpcdata";
     var vimeoUrl = "http://www.vimeo.com/";
+    var schedulePath = "/schedule";           // | Required: | Optional:
     var categoriesPath = "/categories";       // | Required: identity | Optional:
     var newsListPath = "/news-list";          // | Required: identity | Optional: limit, offset, categoryId
     var videosListPath = "/videos-list";      // | Required: identity | Optional: limit, offset, categoryId
@@ -61,6 +62,33 @@ angular.module('App').service('dataService', function ($http) {
         return categories;
     };
 
+    this.getSchedule = function () {
+        var schedule = this._httpPost(htvDataUrl + schedulePath)
+        return schedule;
+    }
+
+    this.searchNews = function (limit, offset, search) {
+        if (limit || offset || search)
+            requestData = {
+                limit: limit,
+                offset: offset,
+                search: search
+            };
+
+        return this._httpPost(htvDataUrl + searchNewsPath, requestData);
+    }
+
+    this.searchVideos = function (limit, offset, search) {
+        if (limit || offset || search)
+            requestData = {
+                limit: limit,
+                offset: offset,
+                search: search
+            };
+
+        return this._httpPost(htvDataUrl + searchVideosPath, requestData);
+    }
+
     // NOTE [atanassarafov, 05072017]: This method works directly on the response data,
     // which structure it is very likely to be changed.
     this._parseToNewsItem = function (data) {
@@ -83,7 +111,6 @@ angular.module('App').service('dataService', function ($http) {
             }
         }
         else if (typeof (singleNewsItem) != 'undefined' && singleNewsItem != null) {
-            debugger;
             newsItems.push(
                 {
                     id: singleNewsItem.Id,
@@ -122,7 +149,6 @@ angular.module('App').service('dataService', function ($http) {
             }
         }
         else if (typeof (singleVideoItem) != 'undefined' && singleVideoItem != null) {
-            debugger;
             videoItems.push(
                 {
                     id: singleVideoItem.Id,

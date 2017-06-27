@@ -2,7 +2,6 @@ app.controller('StartCtrl', function ($scope, $ionicModal, $ionicPopover, $timeo
    
     //Functions
     $scope.loadCategories = function () {
-        debugger;
         var categories = dataService.getCategories();
         categories.then(
             function successCallback(categoriesResponseData) {

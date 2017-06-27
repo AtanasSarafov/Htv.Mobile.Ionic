@@ -2,7 +2,8 @@ app.controller('SearchCtrl', function ($scope, $ionicModal, $ionicPopover, $time
 
     $scope.search = function () {
         $http.get('').success(function (data) {
-            
+            debugger;
+
             var tempData = {
                 newsItems: [
                     {

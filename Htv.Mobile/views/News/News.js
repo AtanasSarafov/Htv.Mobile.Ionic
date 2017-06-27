@@ -1,5 +1,4 @@
 app.controller('NewsCtrl', function ($scope, $stateParams, $http, dataService, displayUtils) {
-    debugger;
     $scope.categoryName = $stateParams.categoryName;
     $scope.categoryKey = $stateParams.categoryKey;
 
@@ -11,7 +10,6 @@ app.controller('NewsCtrl', function ($scope, $stateParams, $http, dataService, d
         limit = typeof limit !== 'undefined' ? limit : 10;
         offset = typeof offset !== 'undefined' ? offset : 0;
         category = typeof category !== 'undefined' ? category : $scope.categoryKey;
-        debugger;
         var newsList = dataService.getNewsList(limit, offset, category);
         newsList.then(
             function successCallback(newsItemsResponseData) {
