@@ -1,25 +1,27 @@
-<ion-view view-title="" ng-init="loadNews()">
+﻿<ion-view view-title="" ng-init="loadNews()">
     <ion-content>
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
         </ion-refresher>
         <!-- Forms -->
         <label class="item item-input">
             <i class="icon ion-search placeholder-icon"></i>
-            <input type="search" placeholder="Search" ng-model="query" ng-change="search()">
+            <input type="search" placeholder="Търси..." ng-model="query" ng-change="search()">
         </label>
-
         <ion-list>
-            <ion-item class="item animated fadeInUp" ng-repeat="newsItem in data.newsItems" href="#/app/newsItem" push-search>
-                <div class="video-thumbnail">
-                    <img ng-src="{{ newsItem.img }}" />
+            <ion-item class="item animated fadeInUp custom" ng-repeat="newsItem in data.newsItems" href="#/app/newsItem" push-search>
+                <ion-thumbnail item-left>
+                    <img class="item-thumb col col-34 " ng-src="{{ newsItem.img }}" />
                     <i class="icon ion-play" style="color:white;" ng-if="newsItem.duration != undefined">
                         &nbsp;{{ newsItem.duration }}
                     </i><!--ng-if="{{newsItem.duration != undefined}}"-->
+                </ion-thumbnail>
+                <div class="item-title">
+                    <mark class="right">
+                        <i class="icon ion-ios-clock"> {{newsItem.date}}</i>
+                    </mark>
+                    <h3 style="white-space: initial; margin: 5px;"><b>{{ newsItem.title }}</b></h3>
                 </div>
-
-                <h2 style="white-space: initial;"><b>{{ newsItem.title }}</b></h2>
-                <p>{{ newsItem.subTitle }}</p>
-                <i class="icon ion-ios-clock"> {{newsItem.date}}</i>
+                <div class="items-separator row card"></div>
                 <!--<ion-item ng-if="$index % 9 == 0" class="item-image">
                     <img src="img/banner.png" />
                 </ion-item>-->

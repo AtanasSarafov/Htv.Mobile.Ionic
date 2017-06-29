@@ -1,9 +1,9 @@
-
+﻿
 <ion-view view-title="" ng-init="loadNews()">
     <ion-content>
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
         </ion-refresher>
-        <div class="bar bar-subheader bar-stable static text-center">
+        <div class="bar bar-subheader bar-stable static text-center" ng-if="categoryName != undefined && categoryName != null">
             <strong class="title">{{categoryName}}</strong>
         </div>
         <a ng-href="#/app/newsItem{{highlightedItem.id}}?{{categoryKey}}" style="text-decoration: none;">

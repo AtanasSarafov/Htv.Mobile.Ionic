@@ -161,6 +161,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
                 }
             }
         })
+
         .state('app.search', {
             url: '/search',
             views: {

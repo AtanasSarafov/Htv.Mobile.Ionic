@@ -3,7 +3,7 @@
     <ion-content>
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
         </ion-refresher>
-        <div class="bar bar-subheader bar-stable static text-center">
+        <div class="bar bar-subheader bar-stable static text-center" ng-if="categoryName != undefined && categoryName != null">
             <strong class="title">{{categoryName}}</strong>
         </div>
         <a href="#/app/videoItem{{highlightedItem.id}}" style="text-decoration: none;">

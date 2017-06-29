@@ -33,21 +33,25 @@
                     <ion-item nav-clear menu-close href="#/app/liveTv" style="font-size:large">
                         <i class="icon ion-ios-film"></i> НА ЖИВО
                     </ion-item>
-                    <div class="item item-divider live-background">
-                        <h1 style="color: #fff; font-size: 22px;">{{"News" | translate}}</h1>
-                    </div>
-                    <div class="items-separator row card"></div>
-                    <ion-list>
-                        <ion-item nav-clear menu-close ui-sref="app.newsList({categoryName: '{{category.name}}', categoryKey: '{{category.key}}'})" ng-repeat="category in data.newsCategories track by $index" style="font-size:large">
-                            {{category.name}}
-                        </ion-item>
-                    </ion-list>
-                    <div class="item item-divider live-background">
-                        <h1 style="color: #fff; font-size: 22px;">{{"Videos" | translate}}</h1>
-                    </div>
+                    <a nav-clear menu-close ui-sref="app.videoList" style="text-decoration: none;">
+                        <div class="item item-divider live-background ">
+                            <h1 style="color: #fff; font-size: 22px;">{{"Videos" | translate}}</h1>
+                        </div>
+                    </a>
                     <div class="items-separator row card"></div>
                     <ion-list>
                         <ion-item nav-clear menu-close ui-sref="app.videoList({categoryName: '{{category.name}}', categoryKey: '{{category.key}}'})" ng-repeat="category in data.videoCategories track by $index" style="font-size:large">
+                            {{category.name}}
+                        </ion-item>
+                    </ion-list>
+                    <a nav-clear menu-close ui-sref="app.newsList" style="text-decoration: none;">
+                        <div class="item item-divider live-background">
+                            <h1 style="color: #fff; font-size: 22px;">{{"News" | translate}}</h1>
+                        </div>
+                    </a>
+                    <div class="items-separator row card"></div>
+                    <ion-list>
+                        <ion-item nav-clear menu-close ui-sref="app.newsList({categoryName: '{{category.name}}', categoryKey: '{{category.key}}'})" ng-repeat="category in data.newsCategories track by $index" style="font-size:large">
                             {{category.name}}
                         </ion-item>
                     </ion-list>
