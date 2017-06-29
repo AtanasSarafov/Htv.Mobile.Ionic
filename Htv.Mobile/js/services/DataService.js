@@ -1,4 +1,4 @@
-angular.module('App').service('dataService', function ($http) {
+﻿angular.module('App').service('dataService', function ($http) {
 
     var htvMainUrl = "https://www.htv.bg";
     var htvDataUrl = "https://www.htv.bg/rpcdata";
@@ -30,7 +30,7 @@ angular.module('App').service('dataService', function ($http) {
     this.getNewsItem = function (id) {
         if (typeof (id) == undefined || id == null) return;
 
-        var requestData = {id: id};
+        var requestData = { id: id };
 
         return this._httpPost(htvDataUrl + newsPath, requestData);
     };
@@ -105,7 +105,8 @@ angular.module('App').service('dataService', function ($http) {
                         title: item.Title,
                         subTitle: item.SubTitle,
                         img: htvMainUrl + item.Thumb,
-                        date: item.DisplayDate
+                        date: item.DisplayDate,
+                        readCount: item.readCount  //this single row is added by KVF
                     }
                 )
             }
@@ -141,7 +142,7 @@ angular.module('App').service('dataService', function ($http) {
                         id: item.Id,
                         title: item.Title,
                         description: item.Description,
-                        img:  item.Thumb,
+                        img: item.Thumb,
                         date: item.Added,
                         source: item.Source
                     }

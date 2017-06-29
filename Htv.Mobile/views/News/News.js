@@ -1,4 +1,4 @@
-app.controller('NewsCtrl', function ($scope, $stateParams, $http, dataService, displayUtils) {
+п»їapp.controller('NewsCtrl', function ($scope, $stateParams, $http, dataService, displayUtils) {
     $scope.categoryName = $stateParams.categoryName;
     $scope.categoryKey = $stateParams.categoryKey;
 
@@ -36,7 +36,7 @@ app.controller('NewsCtrl', function ($scope, $stateParams, $http, dataService, d
                         date: '10.02.2016'
                     },
                     {
-                        title: 'Video item - Даниел Коленда идва за съживителни събрания в България!',
+                        title: 'Video item - Г„Г Г­ГЁГҐГ« ГЉГ®Г«ГҐГ­Г¤Г  ГЁГ¤ГўГ  Г§Г  Г±ГєГ¦ГЁГўГЁГІГҐГ«Г­ГЁ Г±ГєГЎГ°Г Г­ГЁГї Гў ГЃГєГ«ГЈГ Г°ГЁГї!',
                         subTitle: 'onsectetur adipiscing elit, sed do eiusmod tempor ...',
                         img: 'img/news1.png',
                         date: '10.02.2016',
@@ -91,7 +91,8 @@ app.controller('NewsCtrl', function ($scope, $stateParams, $http, dataService, d
                         title: newsItems[i].title,
                         subTitle: newsItems[i].subTitle,
                         img: newsItems[i].img,
-                        date: displayUtils.getDisplayDate(newsItems[i].date)
+                        date: displayUtils.getDisplayDate(newsItems[i].date),
+                        readCount: newsItems[i].readCount
                     }
                 );
             }

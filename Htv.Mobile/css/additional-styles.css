@@ -1,4 +1,4 @@
-
+﻿
 /*CUSTOM styles by KVF*/
 *, p, h1, h2, h3, h4, h5, h6 {
     font-family: 'Didact Gothic', sans-serif;
@@ -124,3 +124,8 @@ mark {
         border-color: #004488;
         box-shadow: 0 0 10px #719ECE;
     }
+
+.h3-modified {
+    padding-right: 20px;
+    padding-top: 12px;
+}

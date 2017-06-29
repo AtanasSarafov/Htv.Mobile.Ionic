@@ -14,11 +14,15 @@
             <h4 class="no-border no-padding-bottom">{{"Related" | translate}}</h4>
         </div>
         <ion-list class="animated fadeInUp">
-            <ion-item nav-clear menu-close class="item-icon-right item-avatar" ng-repeat="relatedNews in relatedNewsItems" ui-sref="app.newsItem({id: {{relatedNews.id}} })">
-                <img ng-src="{{relatedNews.img}}">
-                <h2><b>{{relatedNews.title}}</b></h2>
-                <!--<p>{{relatedNews.title}}</p>-->
-                <i class="icon ion-chatbubble muted"></i>
+            <ion-item class="list card">
+                <div nav-clear menu-close class="item item-avatar list card" ng-repeat="relatedNews in relatedNewsItems" ui-sref="app.newsItem({id: {{relatedNews.id}} })">
+                    <img ng-src="{{relatedNews.img}}">
+                    <h3 style="color:#3a3a3a; white-space: initial;" class="h3-modified">{{relatedNews.title}}</h3>
+                    <p>
+                        <a href="#" class="subdued">{{relatedNews.date}}</a>
+                        <a href="#" class="subdued" style="border: 1px solid red">{{relatedNews.readCount}}</a>
+                    </p>
+                </div>
             </ion-item>
         </ion-list>
         <br /><br />

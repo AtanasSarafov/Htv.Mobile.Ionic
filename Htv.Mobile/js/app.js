@@ -96,7 +96,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider, $tran
         EURBANK: "Банка: Юробанк България",
 
         // Video Item Page
-        LoadingVideo: "Зареждане на видео..."
+        LoadingVideo: "Зареждане на видео...",
+        RelatedVideos: "Гледайте още:"
     });
 
     $stateProvider

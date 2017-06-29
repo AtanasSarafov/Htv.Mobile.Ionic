@@ -1,4 +1,4 @@
-app.controller('NewsItemCtrl', function ($scope, $stateParams, $http, dataService, displayUtils) {
+﻿app.controller('NewsItemCtrl', function ($scope, $stateParams, $http, dataService, displayUtils) {
 
     $scope.loadNewsItem = function () {
         var newsItemResponce = dataService.getNewsItem($stateParams.id);
@@ -37,7 +37,8 @@ app.controller('NewsItemCtrl', function ($scope, $stateParams, $http, dataServic
                         title: newsItems[i].title,
                         subTitle: newsItems[i].subTitle,
                         img: newsItems[i].img,
-                        date: displayUtils.getDisplayDate(newsItems[i].date)
+                        date: displayUtils.getDisplayDate(newsItems[i].date),
+                        readCount: newsItems[i].readCount  //this single row is added by KVF
                     }
                 );
             }
@@ -52,7 +53,7 @@ app.controller('NewsItemCtrl', function ($scope, $stateParams, $http, dataServic
                 readCount: newsItems.readCount,
                 video: newsItems.video,
                 img: newsItems.img,
-                date: displayUtils.getDisplayDate(newsItems.date)
+                date: displayUtils.getDisplayDate(newsItems.date),
             }
         }
     }
