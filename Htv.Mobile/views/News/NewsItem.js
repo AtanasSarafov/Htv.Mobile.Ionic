@@ -38,7 +38,7 @@
                         subTitle: newsItems[i].subTitle,
                         img: newsItems[i].img,
                         date: displayUtils.getDisplayDate(newsItems[i].date),
-                        readCount: newsItems[i].readCount  //this single row is added by KVF
+                        readCount: newsItems[i].readCount
                     }
                 );
             }

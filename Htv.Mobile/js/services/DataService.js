@@ -106,7 +106,7 @@
                         subTitle: item.SubTitle,
                         img: htvMainUrl + item.Thumb,
                         date: item.DisplayDate,
-                        readCount: item.readCount  //this single row is added by KVF
+                        readCount: item.ReadCount
                     }
                 )
             }
